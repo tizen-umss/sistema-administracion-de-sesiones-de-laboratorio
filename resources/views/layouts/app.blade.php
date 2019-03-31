@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     @include('partials.head')
@@ -54,5 +54,6 @@
 {!! Form::close() !!}
 
 @include('partials.javascripts')
+
 </body>
 </html>

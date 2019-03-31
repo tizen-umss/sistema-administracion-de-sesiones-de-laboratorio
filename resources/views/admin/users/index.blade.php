@@ -15,18 +15,20 @@
         <div class="panel-body table-responsive">
             <table class="table table-bordered table-striped {{ count($users) > 0 ? 'datatable' : '' }} dt-select">
                 <thead>
+                
                     <tr>
                         <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
-
+                        
                         <th>@lang('global.users.fields.name')</th>
                         <th>@lang('global.users.fields.email')</th>
                         <th>@lang('global.users.fields.roles')</th>
                         <th>&nbsp;</th>
-
+                        
                     </tr>
                 </thead>
                 
                 <tbody>
+                
                     @if (count($users) > 0)
                         @foreach ($users as $user)
                             <tr data-entry-id="{{ $user->id }}">
@@ -67,4 +69,5 @@
     <script>
         window.route_mass_crud_entries_destroy = '{{ route('admin.users.mass_destroy') }}';
     </script>
+    
 @endsection
