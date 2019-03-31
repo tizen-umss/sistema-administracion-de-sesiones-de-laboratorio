@@ -31,6 +31,10 @@ return [
 		'created_at' => 'Time',
 		'fields' => [
 			'name' => 'Nombre',
+			'apellidoPaterno' => 'Apellido Paterno',
+			'apellidoMaterno' => 'Apellido Materno',
+			'cedula' => 'Cedula',
+			'codigoSiss' => 'CodigoSiss',
 			'email' => 'Correo',
 			'password' => 'Contrasenia',
 			'roles' => 'Roles',

@@ -53,6 +53,13 @@
 
             <li class="{{ $request->segment(1) == 'change_password' ? 'active' : '' }}">
                 <a href="{{ route('auth.change_password') }}">
+                    <i class="fa fa-book"></i>
+                    <span class="title">Gestion de Materias</span>
+                </a>
+            </li>
+            
+            <li class="{{ $request->segment(1) == 'change_password' ? 'active' : '' }}">
+                <a href="{{ route('auth.change_password') }}">
                     <i class="fa fa-key"></i>
                     <span class="title">Cambiar Contrasenia</span>
                 </a>

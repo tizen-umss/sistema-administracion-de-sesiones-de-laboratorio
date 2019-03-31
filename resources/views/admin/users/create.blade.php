@@ -22,6 +22,59 @@
                     @endif
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('apellidoPaterno', 'Apellido Paterno*', ['class' => 'control-label']) !!}
+                    {!! Form::text('apellidoPaterno', old('apellidoPaterno'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('apellidoPaterno'))
+                        <p class="help-block">
+                            {{ $errors->first('apellidoPaterno') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('apellidoMaterno', 'Apellido Materno', ['class' => 'control-label']) !!}
+                    {!! Form::text('apellidoMaterno', old('apellidoMaterno'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('apellidoMaterno'))
+                        <p class="help-block">
+                            {{ $errors->first('apellidoMaterno') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('cedula', 'Cedula*', ['class' => 'control-label']) !!}
+                    {!! Form::text('cedula', old('cedula'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('cedula'))
+                        <p class="help-block">
+                            {{ $errors->first('cedula') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('codigoSiss', 'Codigo Siss*', ['class' => 'control-label']) !!}
+                    {!! Form::text('codigoSiss', old('codigoSiss'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('codigoSiss'))
+                        <p class="help-block">
+                            {{ $errors->first('codigoSiss') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('email', 'Correo*', ['class' => 'control-label']) !!}
