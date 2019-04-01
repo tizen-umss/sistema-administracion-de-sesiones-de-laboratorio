@@ -23,4 +23,6 @@
 
 
 
+
+
 @yield('javascript')
