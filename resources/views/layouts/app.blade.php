@@ -31,7 +31,7 @@
                             <p>{{ Session::get('message') }}</p>
                         </div>
                     @endif
-                    @if ($errors->count() > 0)
+                    <!-- @if ($errors->count() > 0)
                         <div class="note note-danger">
                             <ul class="list-unstyled">
                                 @foreach($errors->all() as $error)
@@ -39,7 +39,8 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
+                    @endif -->
+                    @include('../errors.error')
 
                     @yield('content')
 

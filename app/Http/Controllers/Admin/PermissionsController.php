@@ -54,6 +54,7 @@ class PermissionsController extends Controller
         Permission::create($request->all());
 
         return redirect()->route('admin.permissions.index');
+
     }
 
 

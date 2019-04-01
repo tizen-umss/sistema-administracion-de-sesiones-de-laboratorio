@@ -24,9 +24,19 @@ class StoreUsersRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'apellidoPaterno' => 'required',
+            'cedula' => 'required',
+            'codigoSiss' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'roles' => 'required'
         ];
     }
+
+    public function messages(){
+        return [
+            'name.required' => 'El campo nombre es obligatorio',
+            // 'apellidoPaterno.required' => 'El campo apellido es obligatorio',
+        ];
+ }
 }

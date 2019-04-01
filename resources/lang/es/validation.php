@@ -177,5 +177,10 @@ return [
         'time'                  => 'hora',
         'subject'               => 'asunto',
         'message'               => 'mensaje',
+
+        'apellidoPaterno'       => 'Apellido Paterno',
+        'apellidoMaterno'       => 'Apellido Materno',
+        'cedula'                => 'Cedula',
+        'codigoSiss'            => 'Codigo Siss',
     ],
 ];
