@@ -17,7 +17,7 @@ class UserSeed extends Seeder
             'apellidoPaterno' => 'huarachi',
             'apellidoMaterno' => 'Mamani',
             'cedula' => '7095167',
-            'codigoSiss' => '201200215152',
+            'codigoSiss' => '201300964',
             'email' => 'admin@admin.com',
             'password' => bcrypt('password')
         ]);

@@ -23,10 +23,10 @@ class StoreUsersRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|regex:/^[A-Za-z]*\s()[A-Za-z]*$/|string|max:30',
             'apellidoPaterno' => 'required',
-            'cedula' => 'required',
-            'codigoSiss' => 'required',
+            'cedula' => 'numeric|required|unique:users|digits_between:5,8',
+            'codigoSiss' => 'numeric|required|unique:users|digits_between:9,10',
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'roles' => 'required'

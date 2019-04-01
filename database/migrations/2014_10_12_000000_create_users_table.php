@@ -17,8 +17,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('apellidoPaterno');
             $table->string('apellidoMaterno')->nullable();
-            $table->string('cedula');
-            $table->string('codigoSiss');
+            $table->bigInteger('cedula');
+            $table->bigInteger('codigoSiss');
             $table->string('email');
             $table->string('password');
             $table->string('remember_token')->nullable();
