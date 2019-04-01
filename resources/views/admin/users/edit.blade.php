@@ -14,26 +14,26 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('name', 'Nombre*', ['class' => 'control-label']) !!}
-                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('name'))
+                    <!-- @if($errors->has('name'))
                         <p class="help-block">
                             {{ $errors->first('name') }}
                         </p>
-                    @endif
+                    @endif -->
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('apellidoPaterno', 'Apellido Paterno*', ['class' => 'control-label']) !!}
-                    {!! Form::text('apellidoPaterno', old('apellidoPaterno'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('apellidoPaterno', old('apellidoPaterno'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('apellidoPaterno'))
+                    <!-- @if($errors->has('apellidoPaterno'))
                         <p class="help-block">
                             {{ $errors->first('apellidoPaterno') }}
                         </p>
-                    @endif
+                    @endif -->
                 </div>
             </div>
 
@@ -42,50 +42,50 @@
                     {!! Form::label('apellidoMaterno', 'Apellido Materno', ['class' => 'control-label']) !!}
                     {!! Form::text('apellidoMaterno', old('apellidoMaterno'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('apellidoMaterno'))
+                    <!-- @if($errors->has('apellidoMaterno'))
                         <p class="help-block">
                             {{ $errors->first('apellidoMaterno') }}
                         </p>
-                    @endif
+                    @endif -->
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('cedula', 'Cedula*', ['class' => 'control-label']) !!}
-                    {!! Form::text('cedula', old('cedula'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('cedula', old('cedula'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('cedula'))
+                    <!-- @if($errors->has('cedula'))
                         <p class="help-block">
                             {{ $errors->first('cedula') }}
                         </p>
-                    @endif
+                    @endif -->
                 </div>
             </div> 
 
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('codigoSiss', 'Codigo Siss*', ['class' => 'control-label']) !!}
-                    {!! Form::text('codigoSiss', old('codigoSiss'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('codigoSiss', old('codigoSiss'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('codigoSiss'))
+                    <!-- @if($errors->has('codigoSiss'))
                         <p class="help-block">
                             {{ $errors->first('codigoSiss') }}
                         </p>
-                    @endif
+                    @endif -->
                 </div>
             </div>            
 
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('email', 'Correo*', ['class' => 'control-label']) !!}
-                    {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('email'))
+                    <!-- @if($errors->has('email'))
                         <p class="help-block">
                             {{ $errors->first('email') }}
                         </p>
-                    @endif
+                    @endif -->
                 </div>
             </div>
             <div class="row">
@@ -93,23 +93,23 @@
                     {!! Form::label('password', 'Contrasenia', ['class' => 'control-label']) !!}
                     {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('password'))
+                    <!-- @if($errors->has('password'))
                         <p class="help-block">
                             {{ $errors->first('password') }}
                         </p>
-                    @endif
+                    @endif -->
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('roles', 'Seleccione Rol*', ['class' => 'control-label']) !!}
-                    {!! Form::select('roles[]', $roles, old('roles') ? old('roles') : $user->roles()->pluck('name', 'name'), ['class' => 'form-control select2', 'multiple' => 'multiple', 'required' => '']) !!}
+                    {!! Form::select('roles[]', $roles, old('roles') ? old('roles') : $user->roles()->pluck('name', 'name'), ['class' => 'form-control select2', 'multiple' => 'multiple']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('roles'))
+                    <!-- @if($errors->has('roles'))
                         <p class="help-block">
                             {{ $errors->first('roles') }}
                         </p>
-                    @endif
+                    @endif -->
                 </div>
             </div>
             
