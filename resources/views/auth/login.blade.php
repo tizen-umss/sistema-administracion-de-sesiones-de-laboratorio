@@ -112,7 +112,7 @@
                 <div class="panel-heading">{{ ucfirst(config('app.name')) }} Autentificacion</div>
                 <div class="panel-body"> -->
 
-                <!-- @if (count($errors) > 0)
+                @if (count($errors) > 0)
                         <div class="alert alert-danger">
                             <strong>Ups!</strong> Hubo problemas con el ingreso de datos:
                             <br><br>
@@ -122,14 +122,14 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif -->
+                    @endif
 
     <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-form-title" style="background-image: url({{ url('login_v15') }}/images/bg-01.jpg);">
 					<span class="login100-form-title-1">
-						Bienbenidos al sistema de administracion de sesiones de laboratorio
+						Bienvenidos al sistema de administracion de sesiones de laboratorio
 					</span>
 				</div>
 

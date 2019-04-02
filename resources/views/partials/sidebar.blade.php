@@ -49,7 +49,7 @@
                     </li>
                 </ul>
             </li>
-            @endcan
+
 
             <li class="{{ $request->segment(1) == 'change_password' ? 'active' : '' }}">
                 <a href="{{ route('auth.change_password') }}">
@@ -57,6 +57,7 @@
                     <span class="title">Gestion de Materias</span>
                 </a>
             </li>
+            @endcan
             
             <li class="{{ $request->segment(1) == 'change_password' ? 'active' : '' }}">
                 <a href="{{ route('auth.change_password') }}">
