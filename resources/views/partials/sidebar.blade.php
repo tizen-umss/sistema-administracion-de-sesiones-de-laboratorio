@@ -51,12 +51,13 @@
             </li>
 
 
-            <li class="{{ $request->segment(1) == 'change_password' ? 'active' : '' }}">
-                <a href="{{ route('auth.change_password') }}">
+            <li class="{{ $request->segment(1) == 'materias' ? 'active' : '' }}">
+                <a href="{{ route('admin.materias.index') }}">
                     <i class="fa fa-book"></i>
                     <span class="title">Gestion de Materias</span>
                 </a>
             </li>
+
             @endcan
             
             <li class="{{ $request->segment(1) == 'change_password' ? 'active' : '' }}">

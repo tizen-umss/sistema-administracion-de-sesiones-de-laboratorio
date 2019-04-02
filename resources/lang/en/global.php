@@ -26,6 +26,16 @@ return [
 		],
 	],
 	
+	'materias' => [
+		'title' => 'Materias',
+		'created_at' => 'Time',
+		'fields' => [
+			'nombreMateria' => 'Nombre Materia',
+			'codigoMateria' => 'Codigo Materia',
+			'descripcionMateria' => 'Descripcion Materia',
+		],
+	],
+
 	'users' => [
 		'title' => 'Usuario',
 		'created_at' => 'Time',
