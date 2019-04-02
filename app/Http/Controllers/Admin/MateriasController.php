@@ -88,8 +88,8 @@ class MateriasController extends Controller
         if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-        $permission = Materia::findOrFail($id);
-        $permission->update($request->all());
+        $materia = Materia::findOrFail($id);
+        $materia->update($request->all());
 
         return redirect()->route('admin.materias.index');
     }
@@ -106,8 +106,8 @@ class MateriasController extends Controller
         if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-        $permission = Materia::findOrFail($id);
-        $permission->delete();
+        $materia = Materia::findOrFail($id);
+        $materia->delete();
 
         return redirect()->route('admin.materias.index');
     }

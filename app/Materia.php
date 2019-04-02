@@ -18,6 +18,8 @@ class Materia extends Model
 {
     use Notifiable;
 
-    protected $fillable = ['nombreMateria','codigoMateria', 'descripcionMateria'];
+    protected $primaryKey = 'id';
+
+    protected $fillable = ['nombreMateria','codigoMateria', 'descripcionMateria','updated_at','created_at'];
  
 }

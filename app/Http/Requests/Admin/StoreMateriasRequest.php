@@ -24,7 +24,9 @@ class StoreMateriasRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombreMateria' => 'required',
+            'nombreMateria' => 'required|max:20|unique:materias',
+            'codigoMateria' => 'required|max:7|unique:materias',
+            'descripcionMateria' => 'max:30',
         ];
     }
 }
