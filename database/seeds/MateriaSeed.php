@@ -17,5 +17,17 @@ class MateriaSeed extends Seeder
             'codigoMateria' => 'pro-50',
             'descripcionMateria' => 'materia con practica de laboratorio',
         ]);
+
+        $materia1 = Materia::create([
+            'nombreMateria' => 'elementos',
+            'codigoMateria' => 'ele-5',
+            'descripcionMateria' => 'materia con practica de laboratorio',
+        ]);
+
+        $materia2 = Materia::create([
+            'nombreMateria' => 'computacion',
+            'codigoMateria' => 'comp-1',
+            'descripcionMateria' => 'materia con practica de laboratorio',
+        ]);
     }
 }

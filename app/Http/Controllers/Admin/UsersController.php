@@ -24,6 +24,8 @@ class UsersController extends Controller
         }
 
         $users = User::all();
+        error_log ('holamundo');
+        error_log('App.timezone');
 
         return view('admin.users.index', compact('users'));
     }

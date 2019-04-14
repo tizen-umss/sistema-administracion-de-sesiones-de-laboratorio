@@ -30,4 +30,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     // route::Resource('materia', 'Admin\controladorMateria');
 
+    Route::resource('laboratorios', 'Admin\LaboratoriosController');
+    Route::post('laboratorios_mass_destroy', ['uses' => 'Admin\LaboratoriosController@massDestroy', 'as' => 'laboratorios.mass_destroy']);
+
 });

@@ -18,8 +18,14 @@ class Materia extends Model
 {
     use Notifiable;
 
+    protected $table= 'materias';
+
     protected $primaryKey = 'id';
 
     protected $fillable = ['nombreMateria','codigoMateria', 'descripcionMateria','updated_at','created_at'];
+
+    public function grupoLaboratorio(){
+        return $this->hasOne('App\GrupoLaboratorio');
+    }
  
 }

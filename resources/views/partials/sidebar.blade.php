@@ -51,10 +51,31 @@
             </li>
 
 
+            <li class="{{ $request->segment(1) == 'laboratorios' ? 'active' : '' }}">
+                <a href="{{ route('admin.laboratorios.index') }}">
+                    <i class="fa fa-book"></i>
+                    <span class="title">Gestion de Laboratorios</span>
+                </a>
+            </li>
+
             <li class="{{ $request->segment(1) == 'materias' ? 'active' : '' }}">
                 <a href="{{ route('admin.materias.index') }}">
                     <i class="fa fa-book"></i>
                     <span class="title">Gestion de Materias</span>
+                </a>
+            </li>
+
+            <li class="{{ $request->segment(1) == 'materias' ? 'active' : '' }}">
+                <a href="{{ route('admin.materias.index') }}">
+                    <i class="fa fa-book"></i>
+                    <span class="title">Gestion de Grupos</span>
+                </a>
+            </li>
+
+            <li class="{{ $request->segment(1) == 'materias' ? 'active' : '' }}">
+                <a href="{{ route('admin.materias.index') }}">
+                    <i class="fa fa-book"></i>
+                    <span class="title">Asignaciones</span>
                 </a>
             </li>
 

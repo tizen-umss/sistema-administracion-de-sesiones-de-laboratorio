@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Grupo;
+use App\GrupoLaboratorio;
 
-class GrupoSeed extends Seeder
+class GrupoLaboratorioSeed extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,13 +12,12 @@ class GrupoSeed extends Seeder
      */
     public function run()
     {
-        $grupo = Grupo::create([
+        $grupoLaboratorio = GrupoLaboratorio::create([
             'nombreGrupo' => 'grupo1',
-            'descGrupo' => 'grupo de materia 1',
-            'diaGrupo' => 'martes',
+            'materia_id' => '1',
+            'laboratorio_id' => '1',
+            'diaGrupo' => 'lunes',
             'horaGrupo' => '12:45-14:15',
-            'tipoGrupo' => 'materia',
-            'labGrupo' =>  '2',
         ]);
     }
 }

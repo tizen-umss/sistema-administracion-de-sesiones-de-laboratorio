@@ -36,6 +36,15 @@ return [
 		],
 	],
 
+	'laboratorios' => [
+		'title' => 'Laboratorios',
+		'created_at' => 'Time',
+		'fields' => [
+			'nombreLab' => 'Nombre Laboratorio',
+			'numMaquinas' => 'Numero de Maquinas',
+		],
+	],
+
 	'users' => [
 		'title' => 'Usuario',
 		'created_at' => 'Time',
