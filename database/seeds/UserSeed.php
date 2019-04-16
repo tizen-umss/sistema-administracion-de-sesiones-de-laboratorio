@@ -13,6 +13,7 @@ class UserSeed extends Seeder
     public function run()
     {
         $user = User::create([
+            'id'=>'0',
             'name' => 'Admin',
             'apellidoPaterno' => 'huarachi',
             'apellidoMaterno' => 'Mamani',

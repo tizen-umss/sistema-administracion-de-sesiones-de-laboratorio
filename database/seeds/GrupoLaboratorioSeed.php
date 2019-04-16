@@ -13,7 +13,8 @@ class GrupoLaboratorioSeed extends Seeder
     public function run()
     {
         $grupoLaboratorio = GrupoLaboratorio::create([
-            'nombreGrupo' => 'grupo1',
+            'id'=>'0',
+            'nombreGrupoLab' => 'grupo1',
             'materia_id' => '1',
             'laboratorio_id' => '1',
             'diaGrupo' => 'lunes',

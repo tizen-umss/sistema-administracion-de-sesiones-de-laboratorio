@@ -13,6 +13,7 @@ class LaboratorioSeed extends Seeder
     public function run()
     {
         $laboratorio = Laboratorio::create([
+            'id'=>'0',
             'nombreLab' => 'labo1',
             'numMaquinas' => '30',
         ]);

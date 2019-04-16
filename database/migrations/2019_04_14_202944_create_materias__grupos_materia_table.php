@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGruposLaboratorioTable extends Migration
+class CreateMateriasGruposMateriaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,27 +13,22 @@ class CreateGruposLaboratorioTable extends Migration
      */
     public function up()
     {
-        Schema::create('grupos_laboratorio', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nombreGrupoLab');
+        Schema::create('materias_gruposMateria', function (Blueprint $table) {
+
             $table->integer('materia_id')->unsigned();
-            $table->integer('laboratorio_id')->unsigned();
-            $table->string('diaGrupo');
-            $table->string('horaGrupo'); 
+            $table->integer('grupoMateria_id')->unsigned();
 
             $table->foreign('materia_id')
                 ->references('id')
                 ->on('materias')
                 ->onDelete('cascade');
 
-            $table->foreign('laboratorio_id')
+            $table->foreign('grupoMateria_id')
                 ->references('id')
-                ->on('laboratorios')
+                ->on('gruposMateria')
                 ->onDelete('cascade');
 
-            // $table->primary(['permission_id', 'role_id']);
-   
-            $table->timestamps();
+            $table->primary(['materia_id', 'grupoMateria_id']);
         });
     }
 
@@ -44,6 +39,6 @@ class CreateGruposLaboratorioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grupos_laboratorio');
+        Schema::dropIfExists('materias_gruposMateria');
     }
 }

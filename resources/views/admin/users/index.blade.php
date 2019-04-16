@@ -35,6 +35,7 @@
                 
                     @if (count($users) > 0)
                         @foreach ($users as $user)
+                            {{-- @if($user->roles()->pluck('name')->first() == 'docente') --}}
                             <tr data-entry-id="{{ $user->id }}">
                                 <td></td>
 
@@ -61,6 +62,7 @@
                                 </td>
 
                             </tr>
+                            {{-- @endif --}}
                         @endforeach
                     @else
                         <tr>

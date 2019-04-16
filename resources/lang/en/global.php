@@ -45,6 +45,18 @@ return [
 		],
 	],
 
+	'gruposLaboratorio' => [
+		'title' => 'Grupos de Laboratorio',
+		'created_at' => 'Time',
+		'fields' => [
+			'nombreGrupoLab' => 'Nombre grupo laboratorio',
+			'materia_id' => 'materia id',
+			'laboratorio_id' => 'laboratorio id',
+			'diaGrupo' => 'Dia',
+			'horaGrupo' => 'Hora',
+		],
+	],
+
 	'users' => [
 		'title' => 'Usuario',
 		'created_at' => 'Time',

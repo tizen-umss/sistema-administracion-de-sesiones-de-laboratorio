@@ -13,6 +13,7 @@ class MateriaSeed extends Seeder
     public function run()
     {
         $materia = Materia::create([
+            'id'=>'0',
             'nombreMateria' => 'programacion',
             'codigoMateria' => 'pro-50',
             'descripcionMateria' => 'materia con practica de laboratorio',

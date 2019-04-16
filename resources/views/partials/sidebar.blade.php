@@ -65,8 +65,8 @@
                 </a>
             </li>
 
-            <li class="{{ $request->segment(1) == 'materias' ? 'active' : '' }}">
-                <a href="{{ route('admin.materias.index') }}">
+            <li class="{{ $request->segment(1) == 'gruposLaboratorio' ? 'active' : '' }}">
+                <a href="{{ route('admin.gruposLaboratorio.index') }}">
                     <i class="fa fa-book"></i>
                     <span class="title">Gestion de Grupos</span>
                 </a>
