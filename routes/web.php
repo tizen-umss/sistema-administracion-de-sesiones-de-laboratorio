@@ -42,6 +42,9 @@ Route::group(['middleware' => ['auth','role:administrator'], 'prefix' => 'admin'
     Route::resource('gruposMateria', 'Admin\GruposMateriaController');
     Route::post('grupoMateria_mass_destroy', ['uses' => 'Admin\GruposMateriaController@massDestroy', 'as' => 'gruposMateria.mass_destroy']);
 
+    Route::resource('asignaciones', 'Admin\AsignacionesController');
+    Route::post('asignacion_mass_destroy', ['uses' => 'Admin\AsignacionesController@massDestroy', 'as' => 'asignaciones.mass_destroy']);
+
 });
 
 

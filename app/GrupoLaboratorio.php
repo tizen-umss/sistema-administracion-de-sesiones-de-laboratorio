@@ -18,5 +18,9 @@ class GrupoLaboratorio extends Model
         return $this->belongsTo('App\Laboratorio');
     }
 
+    public function asignacion(){
+        return $this->hasOne('App\Asignacion');
+    }
+
 }
 

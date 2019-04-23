@@ -51,4 +51,8 @@ class User extends Authenticatable
     public function usuarios(){
         return $this->hasMany('App\GrupoMateria');
     }
+
+    public function asignacion(){
+        return $this->hasOne('App\Asignacion');
+    }
 }

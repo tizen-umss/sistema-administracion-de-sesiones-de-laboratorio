@@ -104,15 +104,35 @@
             </li>
 
 
+            <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span class="title">Asignaciones</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+    
+                        <li class="{{ $request->segment(2) == 'asignaciones' ? 'active active-sub' : '' }}">
+                            <a href="{{ route('admin.asignaciones.index') }}">
+                                <i class="fa fa-briefcase"></i>
+                                <span class="title">Aux/Est - Grupos                                 </span>
+                            </a>
+                        </li>
+                        <li class="{{ $request->segment(2) == 'gruposMateria' ? 'active active-sub' : '' }}">
+                            <a href="{{ route('admin.gruposMateria.index') }}">
+                                <i class="fa fa-briefcase"></i>
+                                <span class="title">Otros
+                                </span>
+                            </a>
+                        </li>
+                    
+                    </ul>
+                </li>
 
 
-
-            <li class="{{ $request->segment(1) == 'materias' ? 'active' : '' }}">
-                <a href="{{ route('admin.materias.index') }}">
-                    <i class="fa fa-book"></i>
-                    <span class="title">Asignaciones</span>
-                </a>
-            </li>
+            
 
             @endcan
 

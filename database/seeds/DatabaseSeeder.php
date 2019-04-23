@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MateriaSeed::class);
         $this->call(GrupoLaboratorioSeed::class);
         $this->call(GrupoMateriaSeed::class);
+        $this->call(AsignacionSeed::class);
     }
 }
