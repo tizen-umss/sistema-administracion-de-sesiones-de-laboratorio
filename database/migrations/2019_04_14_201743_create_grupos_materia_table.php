@@ -13,10 +13,25 @@ class CreateGruposMateriaTable extends Migration
      */
     public function up()
     {
-        Schema::create('gruposMateria', function (Blueprint $table) {
+        Schema::create('grupos_materia', function (Blueprint $table) {        
             $table->increments('id');
             $table->string('nombreGrupoMat');
+            $table->integer('materia_id')->unsigned();
+            $table->integer('user_id')->unsigned(); 
+            // $table->morphs('model');
 
+            $table->foreign('materia_id')
+                ->references('id')
+                ->on('materias')
+                ->onDelete('cascade');
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
+            // $table->primary(['materia_id', 'model_id', 'model_type']);
+   
             $table->timestamps();
         });
     }

@@ -3,9 +3,9 @@
 
 @section('content')
     <h3 class="page-title">@lang('global.materias.title')</h3>
-    {{-- <p>
+    <p>
         <a href="{{ route('admin.materias.create') }}" class="btn btn-success">@lang('global.app_add_new')</a>
-    </p> --}}
+    </p>
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -40,14 +40,15 @@
                                 <td>{{ $materia->descripcionMateria }}</td>
                                 
                                 <td>
-                                    <a href="{{ route('admin.materias.edit',[$materia->id]) }}" class="btn btn-xs btn-info">ver mas</a>
-                                    {{-- {!! Form::open(array(
+                                    <a href="{{ route('admin.materias.edit',[$materia->id]) }}" class="btn btn-xs btn-info">@lang('global.app_edit')</a>
+                                    {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("global.app_are_you_sure")."');",
                                         'route' => ['admin.materias.destroy', $materia->id])) !!}
                                     {!! Form::submit(trans('global.app_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!} --}}
+                                    {!! Form::close() !!}
+                                    <a href="{{ route('admin.materias.home',[$materia->id]) }}" class="btn btn-xs btn-success">grupos materia</a>
                                 </td>
 
                             </tr>

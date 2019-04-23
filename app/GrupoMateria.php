@@ -1,21 +1,42 @@
 <?php
 
 namespace App;
-
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
 class GrupoMateria extends Model
 {
-    use Notifiable;
+    protected $table = 'grupos_materia';
+    protected $fillable = ['nombreGrupoMat','materia_id','user_id','updated_at','created_at'];
 
-    protected $table = 'gruposMateria';
+    public function materia(){
+        return $this->belongsTo('App\Materia');
+    }
 
-    protected $primaryKey = 'id';
-
-    protected $fillable = ['nombreGrupoMat','updated_at','created_at'];
-
-    public function materias(){
-        return $this->belongsToMany(Materia::class,'materias','grupoMateria_id','materia_id');
+    public function usuario(){
+        return $this->belongsTo('App\User','user_id');
     }
 }
+
+
+// <?php
+
+// namespace App;
+
+// use Illuminate\Database\Eloquent\Model;
+
+// class GrupoLaboratorio extends Model
+// {
+//     protected $table = 'grupos_laboratorio';
+//     protected $fillable = ['nombreGrupoLab','materia_id','laboratorio_id','diaGrupo','horaGrupo','updated_at','created_at'];
+ 
+
+//     public function materia(){
+//         return $this->belongsTo('App\Materia');
+//     }
+
+//     public function laboratorio(){
+//         return $this->belongsTo('App\Laboratorio');
+//     }
+
+// }
+

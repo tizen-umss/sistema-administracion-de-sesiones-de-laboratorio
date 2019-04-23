@@ -65,12 +65,47 @@
                 </a>
             </li>
 
-            <li class="{{ $request->segment(1) == 'gruposLaboratorio' ? 'active' : '' }}">
+            {{-- <li class="{{ $request->segment(1) == 'gruposLaboratorio' ? 'active' : '' }}">
                 <a href="{{ route('admin.gruposLaboratorio.index') }}">
                     <i class="fa fa-book"></i>
                     <span class="title">Gestion de Grupos</span>
                 </a>
             </li>
+
+ --}}
+
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i>
+                    <span class="title">Gestion de Grupos</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+
+                    <li class="{{ $request->segment(2) == 'gruposLaboratorio' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('admin.gruposLaboratorio.index') }}">
+                            <i class="fa fa-briefcase"></i>
+                            <span class="title">Grupos de Laboratorio
+                            </span>
+                        </a>
+                    </li>
+                    <li class="{{ $request->segment(2) == 'gruposMateria' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('admin.gruposMateria.index') }}">
+                            <i class="fa fa-briefcase"></i>
+                            <span class="title">Grupos de Materia
+                            </span>
+                        </a>
+                    </li>
+                
+                </ul>
+            </li>
+
+
+
+
 
             <li class="{{ $request->segment(1) == 'materias' ? 'active' : '' }}">
                 <a href="{{ route('admin.materias.index') }}">
@@ -79,6 +114,15 @@
                 </a>
             </li>
 
+            @endcan
+
+            @can('materias')
+            <li class="{{ $request->segment(1) == 'materias' ? 'active' : '' }}">
+                <a href="{{ route('admin.materias.index') }}">
+                    <i class="fa fa-book"></i>
+                    <span class="title">Materias</span>
+                </a>
+            </li>
             @endcan
             
             <li class="{{ $request->segment(1) == 'change_password' ? 'active' : '' }}">

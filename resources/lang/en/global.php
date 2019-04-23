@@ -86,5 +86,5 @@ return [
 	'app_back_to_list' => 'Volver a la lista',
 	'app_dashboard' => 'Inicio',
 	'app_delete' => 'Eliminar',
-	'global_title' => 'SASU',
+	'global_title' => 'UMSS',
 ];

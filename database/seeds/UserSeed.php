@@ -24,7 +24,7 @@ class UserSeed extends Seeder
         ]);
         $user->assignRole('administrator');
 
-        $user1 = User::create([
+        $user = User::create([
             'name' => 'Docente',
             'apellidoPaterno' => 'huarachi',
             'apellidoMaterno' => 'Mamani',
@@ -33,9 +33,9 @@ class UserSeed extends Seeder
             'email' => 'docente@adocente.com',
             'password' => bcrypt('holamundo')
         ]);
-        $user1->assignRole('docente');
+        $user->assignRole('docente');
 
-        $user2 = User::create([
+        $user = User::create([
             'name' => 'Auxiliar',
             'apellidoPaterno' => 'huarachi',
             'apellidoMaterno' => 'Mamani',
@@ -44,9 +44,9 @@ class UserSeed extends Seeder
             'email' => 'auxiliar@auxiliar.com',
             'password' => bcrypt('holamundo')
         ]);
-        $user2->assignRole('auxiliar');
+        $user->assignRole('auxiliar');
 
-        $user3 = User::create([
+        $user = User::create([
             'name' => 'Estudiante',
             'apellidoPaterno' => 'huarachi',
             'apellidoMaterno' => 'Mamani',
@@ -55,7 +55,7 @@ class UserSeed extends Seeder
             'email' => 'estudiante@estudiante.com',
             'password' => bcrypt('holamundo')
         ]);
-        $user3->assignRole('estudiante');
+        $user->assignRole('estudiante');
 
     }
 }

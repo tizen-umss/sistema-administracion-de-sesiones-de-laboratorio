@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Aux;
 
 use App\Materia;
 
@@ -20,13 +20,13 @@ class MateriasController extends Controller
      */
     public function index()
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
+        // if (! Gate::allows('users_manage')) {
+        //     return abort(401);
+        // }
 
         $materias = Materia::all();
 
-        return view('admin.materia.index', compact('materias'));
+        return view('aux.materia.index', compact('materias'));
     }
 
     /**
@@ -36,10 +36,10 @@ class MateriasController extends Controller
      */
     public function create()
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
-        return view('admin.materia.create');
+        // if (! Gate::allows('users_manage')) {
+        //     return abort(401);
+        // }
+        return view('aux.materia.create');
     }
 
     /**
@@ -50,12 +50,12 @@ class MateriasController extends Controller
      */
     public function store(StoreMateriasRequest $request)
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
+        // if (! Gate::allows('users_manage')) {
+        //     return abort(401);
+        // }
         Materia::create($request->all());
 
-        return redirect()->route('admin.materias.index');
+        return redirect()->route('aux.materias.index');
 
     }
 
@@ -68,22 +68,12 @@ class MateriasController extends Controller
      */
     public function edit($id)
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
+        // if (! Gate::allows('users_manage')) {
+        //     return abort(401);
+        // }
         $materia = Materia::findOrFail($id);
 
-        return view('admin.materia.edit', compact('materia'));
-    }
-
-    public function home($id)
-    {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
-        $materia = Materia::findOrFail($id);
-
-        return view('admin.materia.home', compact('materia'));
+        return view('aux.materia.edit', compact('materia'));
     }
 
     /**
@@ -95,13 +85,13 @@ class MateriasController extends Controller
      */
     public function update(UpdateMateriasRequest $request, $id)
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
+        // if (! Gate::allows('users_manage')) {
+        //     return abort(401);
+        // }
         $materia = Materia::findOrFail($id);
         $materia->update($request->all());
 
-        return redirect()->route('admin.materias.index');
+        return redirect()->route('aux.materias.index');
     }
 
 
@@ -113,13 +103,13 @@ class MateriasController extends Controller
      */
     public function destroy($id)
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
+        // if (! Gate::allows('users_manage')) {
+        //     return abort(401);
+        // }
         $materia = Materia::findOrFail($id);
         $materia->delete();
 
-        return redirect()->route('admin.materias.index');
+        return redirect()->route('aux.materias.index');
     }
 
     /**
@@ -129,9 +119,9 @@ class MateriasController extends Controller
      */
     public function massDestroy(Request $request)
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
+        // if (! Gate::allows('users_manage')) {
+        //     return abort(401);
+        // }
         if ($request->input('ids')) {
             $entries = Materia::whereIn('id', $request->input('ids'))->get();
 

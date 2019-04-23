@@ -48,6 +48,7 @@
                                         'route' => ['admin.materias.destroy', $materia->id])) !!}
                                     {!! Form::submit(trans('global.app_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                     {!! Form::close() !!}
+                                    {{-- <a href="{{ route('admin.materias.home',[$materia->id]) }}" class="btn btn-xs btn-success">grupos materia</a> --}}
                                 </td>
 
                             </tr>

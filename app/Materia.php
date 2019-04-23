@@ -28,8 +28,11 @@ class Materia extends Model
         return $this->hasOne('App\GrupoLaboratorio');
     }
 
+    // public function gruposMateria(){
+    //     return $this->belongsToMany(GrupoMateria::class,'gruposMateria','materia_id','grupoMateria_id');
+    // }
     public function gruposMateria(){
-        return $this->belongsToMany(GrupoMateria::class,'gruposMateria','materia_id','grupoMateria_id');
+        return $this->hasMany('App\GrupoMateria');
     }
  
 }

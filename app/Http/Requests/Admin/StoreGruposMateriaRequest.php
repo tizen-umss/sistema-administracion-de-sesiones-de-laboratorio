@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreGruposLaboratorioRequest extends FormRequest
+class StoreGruposMateriaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,8 @@ class StoreGruposLaboratorioRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombreGrupoLab' => 'required|max:20|unique:grupos_laboratorio',
-            'diaGrupo' => 'required',
-            'horaGrupo' => 'required',
+            'nombreGrupoMat' => 'required|max:20|unique:grupos_materia',
         ];
     }
 }
+

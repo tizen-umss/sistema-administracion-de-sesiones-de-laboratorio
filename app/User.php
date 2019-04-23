@@ -24,6 +24,10 @@ class User extends Authenticatable
     use Notifiable;
     use HasRoles;
 
+    protected $table= 'users';
+
+    protected $primaryKey = 'id';
+
     protected $fillable = ['name','apellidoPaterno', 'apellidoMaterno', 'cedula', 'codigoSiss', 'email', 'password', 'remember_token'];
     
     
@@ -44,5 +48,7 @@ class User extends Authenticatable
     }
     
     
-    
+    public function usuarios(){
+        return $this->hasMany('App\GrupoMateria');
+    }
 }
