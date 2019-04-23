@@ -55,7 +55,7 @@ class MateriasController extends Controller
         // }
         Materia::create($request->all());
 
-        return redirect()->route('aux.materias.index');
+        return redirect()->route('materias.index');
 
     }
 
@@ -91,7 +91,7 @@ class MateriasController extends Controller
         $materia = Materia::findOrFail($id);
         $materia->update($request->all());
 
-        return redirect()->route('aux.materias.index');
+        return redirect()->route('materias.index');
     }
 
 
@@ -109,7 +109,7 @@ class MateriasController extends Controller
         $materia = Materia::findOrFail($id);
         $materia->delete();
 
-        return redirect()->route('aux.materias.index');
+        return redirect()->route('materias.index');
     }
 
     /**

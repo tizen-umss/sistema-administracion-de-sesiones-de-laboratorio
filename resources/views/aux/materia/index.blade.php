@@ -4,7 +4,7 @@
 @section('content')
     <h3 class="page-title">@lang('global.materias.title')</h3>
     {{-- <p>
-        <a href="{{ route('admin.materias.create') }}" class="btn btn-success">@lang('global.app_add_new')</a>
+        <a href="{{ route('aux.materias.create') }}" class="btn btn-success">@lang('global.app_add_new')</a>
     </p> --}}
 
     <div class="panel panel-default">
@@ -40,14 +40,8 @@
                                 <td>{{ $materia->descripcionMateria }}</td>
                                 
                                 <td>
-                                    <a href="{{ route('admin.materias.edit',[$materia->id]) }}" class="btn btn-xs btn-info">ver mas</a>
-                                    {{-- {!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("global.app_are_you_sure")."');",
-                                        'route' => ['admin.materias.destroy', $materia->id])) !!}
-                                    {!! Form::submit(trans('global.app_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!} --}}
+                                    <a href="{{ route('materias.edit',[$materia->id]) }}" class="btn btn-xs btn-info">Portafolio</a>
+                                    
                                 </td>
 
                             </tr>
@@ -61,11 +55,12 @@
             </table>
         </div>
     </div>
+
 @stop
 
 @section('javascript') 
     <script>
-        window.route_mass_crud_entries_destroy = '{{ route('admin.materias.mass_destroy') }}';
+        window.route_mass_crud_entries_destroy = '{{ route('materias.mass_destroy') }}';
     </script>
     
 @endsection

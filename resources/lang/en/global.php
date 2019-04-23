@@ -57,6 +57,26 @@ return [
 		],
 	],
 
+	'gruposMateria' => [
+		'title' => 'Grupos de Materia',
+		'created_at' => 'Time',
+		'fields' => [
+			'nombreGrupoMat' => 'Nombre grupo laboratorio',
+			'materia_id' => 'materia',
+			'user_id' => 'Docente ',
+		],
+	],
+
+	'asignaciones' => [
+		'title' => 'Asignaciones Auxiliar/Estudiante a Grupos Materia/Laboratorio',
+		'created_at' => 'Time',
+		'fields' => [
+			'user_id' => 'usuario',
+			'grupoMateria_id' => 'Grupo Materia',
+			'grupoLaboratorio_id' => 'Grupo Laboratorio ',
+		],
+	],
+
 	'users' => [
 		'title' => 'Usuario',
 		'created_at' => 'Time',

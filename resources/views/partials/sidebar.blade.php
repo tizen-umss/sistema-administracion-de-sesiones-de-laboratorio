@@ -65,15 +65,6 @@
                 </a>
             </li>
 
-            {{-- <li class="{{ $request->segment(1) == 'gruposLaboratorio' ? 'active' : '' }}">
-                <a href="{{ route('admin.gruposLaboratorio.index') }}">
-                    <i class="fa fa-book"></i>
-                    <span class="title">Gestion de Grupos</span>
-                </a>
-            </li>
-
- --}}
-
 
             <li class="treeview">
                 <a href="#">
@@ -136,14 +127,14 @@
 
             @endcan
 
-            @can('materias')
+            @role('auxiliar|docente')
             <li class="{{ $request->segment(1) == 'materias' ? 'active' : '' }}">
-                <a href="{{ route('admin.materias.index') }}">
+                <a href="{{ route('materias.index') }}">
                     <i class="fa fa-book"></i>
                     <span class="title">Materias</span>
                 </a>
             </li>
-            @endcan
+            @endrole
             
             <li class="{{ $request->segment(1) == 'change_password' ? 'active' : '' }}">
                 <a href="{{ route('auth.change_password') }}">

@@ -14,9 +14,9 @@ class UserSeed extends Seeder
     {
         $user = User::create([
             'id'=>'0',
-            'name' => 'Admin',
+            'name' => 'carlos',
             'apellidoPaterno' => 'huarachi',
-            'apellidoMaterno' => 'Mamani',
+            'apellidoMaterno' => 'lopez',
             'cedula' => '7095167',
             'codigoSiss' => '201300964',
             'email' => 'admin@admin.com',
@@ -25,20 +25,20 @@ class UserSeed extends Seeder
         $user->assignRole('administrator');
 
         $user = User::create([
-            'name' => 'Docente',
-            'apellidoPaterno' => 'huarachi',
+            'name' => 'maria',
+            'apellidoPaterno' => 'merlo',
             'apellidoMaterno' => 'Mamani',
             'cedula' => '7095167',
             'codigoSiss' => '201300964',
-            'email' => 'docente@adocente.com',
+            'email' => 'docente@docente.com',
             'password' => bcrypt('holamundo')
         ]);
         $user->assignRole('docente');
 
         $user = User::create([
-            'name' => 'Auxiliar',
-            'apellidoPaterno' => 'huarachi',
-            'apellidoMaterno' => 'Mamani',
+            'name' => 'carolina',
+            'apellidoPaterno' => 'gomez',
+            'apellidoMaterno' => 'suares',
             'cedula' => '7095167',
             'codigoSiss' => '201300964',
             'email' => 'auxiliar@auxiliar.com',
@@ -47,9 +47,31 @@ class UserSeed extends Seeder
         $user->assignRole('auxiliar');
 
         $user = User::create([
-            'name' => 'Estudiante',
-            'apellidoPaterno' => 'huarachi',
+            'name' => 'mario',
+            'apellidoPaterno' => 'soliz',
             'apellidoMaterno' => 'Mamani',
+            'cedula' => '7095167',
+            'codigoSiss' => '201300964',
+            'email' => 'estudiante@estudiante.com',
+            'password' => bcrypt('holamundo')
+        ]);
+        $user->assignRole('estudiante');
+
+        $user = User::create([
+            'name' => 'sandra',
+            'apellidoPaterno' => 'carina',
+            'apellidoMaterno' => 'ramos',
+            'cedula' => '7095167',
+            'codigoSiss' => '201300964',
+            'email' => 'estudiante@estudiante.com',
+            'password' => bcrypt('holamundo')
+        ]);
+        $user->assignRole('estudiante');
+
+        $user = User::create([
+            'name' => 'luis',
+            'apellidoPaterno' => 'caisa',
+            'apellidoMaterno' => 'merlo',
             'cedula' => '7095167',
             'codigoSiss' => '201300964',
             'email' => 'estudiante@estudiante.com',

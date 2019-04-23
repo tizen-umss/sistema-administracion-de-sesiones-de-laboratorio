@@ -1,5 +1,5 @@
 <?php
-Route::get('/', function () { return redirect('/admin/home'); });
+Route::get('/', function () { return redirect('/login'); });
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('auth.login');
@@ -16,7 +16,8 @@ $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.password.reset');
 
-Route::group(['middleware' => ['auth','role:administrator'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/home', 'HomeController@index');
     Route::resource('permissions', 'Admin\PermissionsController');
     Route::post('permissions_mass_destroy', ['uses' => 'Admin\PermissionsController@massDestroy', 'as' => 'permissions.mass_destroy']);
@@ -50,7 +51,7 @@ Route::group(['middleware' => ['auth','role:administrator'], 'prefix' => 'admin'
 
 
 
-// Route::group(['middleware' => ['auth','role:auxiliar'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+// Route::group(['middleware' => ['auth','role:auxiliar'], 'prefix' => 'aux', 'as' => 'aux.'], function () {
 //     Route::get('/home', 'HomeController@index');
 //     // Route::resource('permissions', 'Admin\PermissionsController');
 //     // Route::post('permissions_mass_destroy', ['uses' => 'Admin\PermissionsController@massDestroy', 'as' => 'permissions.mass_destroy']);
@@ -59,14 +60,14 @@ Route::group(['middleware' => ['auth','role:administrator'], 'prefix' => 'admin'
 //     // Route::resource('users', 'Admin\UsersController');
 //     // Route::post('users_mass_destroy', ['uses' => 'Admin\UsersController@massDestroy', 'as' => 'users.mass_destroy']);
 
-//     Route::resource('materias', 'Aux\MateriasController');
-//     Route::post('materias_mass_destroy', ['uses' => 'Aux\MateriasController@massDestroy', 'as' => 'materias.mass_destroy']);
+    Route::resource('/materias', 'Aux\MateriasController');
+    Route::post('materias_mass_destroy', ['uses' => 'Aux\MateriasController@massDestroy', 'as' => 'materias.mass_destroy']);
 
 
 //     // Route::resource('laboratorios', 'Admin\LaboratoriosController');
 //     // Route::post('laboratorios_mass_destroy', ['uses' => 'Admin\LaboratoriosController@massDestroy', 'as' => 'laboratorios.mass_destroy']);
 
-//     Route::resource('gruposLaboratorio', 'Aux\GruposLaboratorioController');
-//     RouMateria', ['uses' => 'Aux\GruposLaboratorioController@massDestroy', 'as' => 'gruposLaboratorio.mass_destroy']);
+//     // Route::resource('gruposLaboratorio', 'Aux\GruposLaboratorioController');
+//     // Route::Materia', ['uses' => 'Aux\GruposLaboratorioController@massDestroy', 'as' => 'gruposLaboratorio.mass_destroy']);
 
 // });
