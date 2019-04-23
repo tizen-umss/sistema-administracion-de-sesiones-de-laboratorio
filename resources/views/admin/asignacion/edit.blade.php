@@ -41,7 +41,7 @@
         
                     <div class="row">
                             <div class="col-xs-12 form-group">
-                                {!! Form::label('grupoLaboratorio_id', 'Seleccione Grupo Materia', ['class' => 'control-label']) !!}
+                                {!! Form::label('grupoLaboratorio_id', 'Seleccione Grupo de Laboratorio', ['class' => 'control-label']) !!}
                                 {!! Form::select('grupoLaboratorio_id', (new App\GrupoLaboratorio())->pluck('nombreGrupoLab','id'), old('grupoLaboratorio_id'), ['class' => 'form-control select2']) !!}
                                 {{-- {!! Form::text('grupoLaboratorio_id', old('grupoLaboratorio_id'), ['class' => 'form-control', 'placeholder' => '']) !!} --}}
                                 <p class="help-block"></p>
