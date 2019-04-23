@@ -22,7 +22,7 @@
                         <th>@lang('global.materias.fields.nombreMateria')</th>
                         <th>@lang('global.materias.fields.codigoMateria')</th>
                         <th>@lang('global.materias.fields.descripcionMateria')</th>
-                
+                        <th>Grupos</th>
                         <th>&nbsp;</th>
                         
                     </tr>
@@ -38,6 +38,13 @@
                                 <td>{{ $materia->nombreMateria }}</td>
                                 <td>{{ $materia->codigoMateria }}</td>
                                 <td>{{ $materia->descripcionMateria }}</td>
+                                
+                                <td>
+                                        {{-- {{Auth::user()->id}} --}}
+                                    @foreach (App\GrupoMateria::all()->where('id','=',Auth::user()->id)->pluck('nombreGrupoMat') as $permission)
+                                        <span class="label label-info label-many">{{ $permission }}</span>
+                                    @endforeach
+                                </td>
                                 
                                 <td>
                                     <a href="{{ route('materias.edit',[$materia->id]) }}" class="btn btn-xs btn-info">Portafolio</a>
