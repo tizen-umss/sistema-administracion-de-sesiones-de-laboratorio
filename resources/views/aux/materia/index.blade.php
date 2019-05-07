@@ -34,23 +34,24 @@
                         @foreach ($materias as $materia)
                             <tr data-entry-id="{{ $materia->id }}">
                                 <td></td>
+                                @if(App\GrupoMateria::all()->pluck('materia_id')->first() == $materia->id) 
+                                    <td>{{ $materia->nombreMateria }}</td>
+                                    <td>{{ $materia->codigoMateria }}</td>
+                                    <td>{{ $materia->descripcionMateria }}</td>
 
-                                <td>{{ $materia->nombreMateria }}</td>
-                                <td>{{ $materia->codigoMateria }}</td>
-                                <td>{{ $materia->descripcionMateria }}</td>
-                                
-                                <td>
-                                        {{-- {{Auth::user()->id}} --}}
-                                    @foreach (App\GrupoMateria::all()->where('id','=',Auth::user()->id)->pluck('nombreGrupoMat') as $permission)
-                                        <span class="label label-info label-many">{{ $permission }}</span>
-                                    @endforeach
-                                </td>
-                                
-                                <td>
-                                    <a href="{{ route('materias.edit',[$materia->id]) }}" class="btn btn-xs btn-info">Portafolio</a>
+                                    <td>
+                                            {{-- {{App\GrupoMateria::all()}} --}}
+                                        {{-- @foreach (App\GrupoMateria::all()->where('id','=',Auth::user()->id)->pluck('nombreGrupoMat') as $permission) --}}
+                                        @foreach (App\GrupoMateria::all()->where('user_id','=',Auth::user()->id)->pluck('nombreGrupoMat') as $permission)
+                                            <span class="label label-info label-many">{{ $permission }}</span>
+                                        @endforeach
+                                    </td>
                                     
-                                </td>
-
+                                    <td>
+                                        <a href="{{ route('materias.edit',[$materia->id]) }}" class="btn btn-xs btn-info">Portafolio</a>
+                                        
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     @else
