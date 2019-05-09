@@ -52,16 +52,27 @@
             
             {{-- @foreach (App\User::all() as $user)
                     @if($user->roles()->pluck('name')->first() == 'docente')
-                    $list = App\User;
+                    {{$user}}
                     @endif
             @endforeach --}}
 
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('user_id', 'Seleccione Docente', ['class' => 'control-label']) !!}
-                    {!! Form::select('user_id', (new App\User())->pluck('name','id'), old('user_id'), ['class' => 'form-control select2']) !!}
+                    {{-- {!! Form::select('user_id', (new App\User())->pluck('name','id'), old('user_id'), ['class' => 'form-control select2']) !!} --}}
                     {{-- {!! Form::select('user_id', App\User::all()->where('name','=','Docente')->pluck('name','id'), old('user_id'), ['class' => 'form-control select2']) !!} --}}
+
+                    {{-- @foreach (App\User::all() as $user)
+                        @if($user->roles()->pluck('name')->first() == 'docente')
+                            
+                        @endif --}}
+
+                        {!! Form::select('user_id',$nonmembers->pluck('codigoSiss','id'), old('user_id'), ['class' => 'form-control select2']) !!}
+                    {{-- @endforeach  --}}
+
                     {{-- {!! Form::text('user_id', old('user_id'), ['class' => 'form-control', 'placeholder' => '']) !!} --}}
+
+
                     <p class="help-block"></p>
                     <!-- @if($errors->has('user_id'))
                         <p class="help-block">

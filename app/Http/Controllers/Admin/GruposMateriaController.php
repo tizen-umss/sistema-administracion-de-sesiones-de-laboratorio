@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\GrupoMateria;
+use App\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Collection;
 
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\Admin\StoreGruposMateriaRequest;
 use App\Http\Requests\Admin\UpdateGruposMateriaRequest;
+
+use Spatie\Permission\Models\Role;
 
 
 class GruposMateriaController extends Controller
@@ -44,7 +48,23 @@ class GruposMateriaController extends Controller
         if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-        return view('admin.grupoMateria.create');
+        // $otro = new Collection();
+        // foreach (User::all() as $user){
+        //     if($user->roles()->pluck('name')->first() == 'estudiante'){
+        //       $otro.dd($user);
+        //     }
+        // }
+        // return $otro;
+        // return view('admin.grupoMateria.create');
+        $roles = Role::all();
+        $users = \App\User::with('roles')->get();
+        $nonmembers = $users->reject(function ($user, $key) {
+            return !$user->hasRole('estudiante');
+        });
+        // return $nonmembers;
+        return view('admin.grupoMateria.create',compact('nonmembers'));
+
+        // return view('admin.report_roles', ['roles'=>$roles, 'nonmembers' => $nonmembers]);
     }
 
     /**
