@@ -62,4 +62,8 @@ class User extends Authenticatable
     public function tareas(){
         return $this-> hasMany(Tarea::class);
     }
+
+    public function gruposMateria(){
+        return $this->belongsTo(Usuario_GrupoMat::class);
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePublicacionsTable extends Migration
+class CreateActividadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreatePublicacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('publicacions', function (Blueprint $table) {
+        Schema::create('actividads', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->string('desc');
-            $table->timestamp('fechaPublicaion');
-            $table->timestamp('fechaLimite');
-            $table->integer('grupos_materia_id')->unsigned();;
+            $table->string('observaciones');
+            $table->string('descripcion');
+            $table->integer('tareas_id');
+
+
             $table->timestamps();
 
-            $table->foreign('grupos_materia_id')
+            $table->foreign('tareas_id')
             ->references('id')
-            ->on('grupos_materia')
+            ->on('tareas')
             ->onDelete('cascade');
         });
     }
@@ -36,6 +36,6 @@ class CreatePublicacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('publicacions');
+        Schema::dropIfExists('actividads');
     }
 }

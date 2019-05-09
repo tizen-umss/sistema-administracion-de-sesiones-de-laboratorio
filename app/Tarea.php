@@ -32,4 +32,8 @@ class Tarea extends Model
     public function publicacions(){
         return $this->hasMany(Publicacion::class);
     }
+
+    public function actividades(){
+        return $this->hasMany(Actividad::class);
+    }
 }

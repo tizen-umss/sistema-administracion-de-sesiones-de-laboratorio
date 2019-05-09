@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePublicacionsTable extends Migration
+class CreateUsuarioGrupoMatsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,20 @@ class CreatePublicacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('publicacions', function (Blueprint $table) {
+        Schema::create('usuario__grupo_mats', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->string('desc');
-            $table->timestamp('fechaPublicaion');
-            $table->timestamp('fechaLimite');
-            $table->integer('grupos_materia_id')->unsigned();;
+            $table->integer('user_id')->unsigned();
+            $table->integer('grupos_materia_id')->unsignet();
             $table->timestamps();
 
             $table->foreign('grupos_materia_id')
             ->references('id')
             ->on('grupos_materia')
+            ->onDelete('cascade');
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
             ->onDelete('cascade');
         });
     }
@@ -36,6 +38,6 @@ class CreatePublicacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('publicacions');
+        Schema::dropIfExists('usuario__grupo_mats');
     }
 }
