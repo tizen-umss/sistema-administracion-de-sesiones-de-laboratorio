@@ -71,3 +71,4 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 //     // Route::Materia', ['uses' => 'Aux\GruposLaboratorioController@massDestroy', 'as' => 'gruposLaboratorio.mass_destroy']);
 
 // });
+ Route::resource('/x', 'borrar');

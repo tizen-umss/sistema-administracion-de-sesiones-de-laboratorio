@@ -19,6 +19,13 @@ class GrupoMateria extends Model
     public function asignacion(){
         return $this->hasOne('App\Asignacion');
     }
+
+    /**
+     * Un grupo de materia, tiene muchas publicaciones
+     */
+     public function publicacions(){
+        return $this->hasMany(Publicacion::class);
+     }
 }
 
 

@@ -55,4 +55,11 @@ class User extends Authenticatable
     public function asignacion(){
         return $this->hasOne('App\Asignacion');
     }
+
+    /**
+     * Un usuario (Estudiante) tiene muchas tareas
+     */
+    public function tareas(){
+        return $this-> hasMany(Tarea::class);
+    }
 }
