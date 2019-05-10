@@ -11,7 +11,7 @@ class Tarea extends Model
     protected $table= 'tareas';
     protected $primaryKey = 'id';
 
-    protected $fillable = ['tituloTarea', 'descTarea', 'calificacion', 'fecha_entrega', 'remember_token'];
+    protected $fillable = ['tituloTarea', 'descTarea', 'calificacion', 'fecha_entrega','user_id','portafolio_id', 'remember_token'];
     
     /**
      * Una tarea pertenece a un usuario

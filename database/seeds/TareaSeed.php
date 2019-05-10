@@ -18,7 +18,8 @@ class TareaSeed extends Seeder
             'descTarea' => 'la tarea se eesta presentando incompleta',
             'calificacion' => 5,
             'fecha_entrega' => '2019-05-10 01:00:20.827343',
-            'user_id'=>'0',
+            'user_id'=>1,
+            'portafolio_id'=>1,
         ]);
     }
 }

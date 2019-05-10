@@ -13,7 +13,15 @@ class PortafolioSeed extends Seeder
     public function run()
     {
         $portafolio = Portafolio::create([
-            'id'=>'0',
+            'id'=>0,
+        ]);
+
+        $portafolio = Portafolio::create([
+            'id'=>1,
         ]);
     }
 }
+// $table->foreign('archivo_tareas_id')
+            // ->references('id')
+            // ->on('archivo_tareas')
+            // ->onDelete('cascade');

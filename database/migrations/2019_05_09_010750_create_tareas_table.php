@@ -19,15 +19,22 @@ class CreateTareasTable extends Migration
             $table->string('descTarea');
             $table->integer('calificacion');
             $table->timestamp('fecha_entrega');
-            $table->timestamps();
+        
             $table->integer('user_id')->unsigned();            
+            $table->integer('portafolio_id')->unsigned();            
             // $table->integer('archivo_tareas_id')->unsigned();            
-            
+            $table->timestamps();
 
             $table->foreign('user_id')
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
+
+            $table->foreign('portafolio_id')
+            ->references('id')
+            ->on('portafolios')
+            ->onDelete('cascade');
+
 
             // $table->foreign('archivo_tareas_id')
             // ->references('id')
