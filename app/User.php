@@ -5,6 +5,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Hash;
+use Spatie\Permission\Models\Role;
 
 /**
  * Class User
@@ -65,5 +66,9 @@ class User extends Authenticatable
 
     public function gruposMateria(){
         return $this->belongsTo(Usuario_GrupoMat::class);
+    }
+
+    public function portafolio(){
+        return $this->hasTo('App\Portafolio','portafolio_id');
     }
 }

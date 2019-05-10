@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Aux;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use DB;
 
 class ActividadController extends Controller
 {
@@ -14,7 +15,13 @@ class ActividadController extends Controller
      */
     public function index()
     {
-        return view('aux.actividades.index');
+        $estudiantes=DB::table('actividads')
+              ->join('tareas','tareas_id','=','tareas.id')
+              ->join('users','user_id','=','users.id')->get();
+
+
+         
+        return view('aux.actividades.index',compact('estudiantes'));
     }
 
     /**
@@ -57,7 +64,9 @@ class ActividadController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $materia = Materia::findOrFail($id);
+
+        return view('aux.actividades.index');
     }
 
     /**

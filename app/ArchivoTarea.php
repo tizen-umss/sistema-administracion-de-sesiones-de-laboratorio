@@ -18,4 +18,5 @@ class ArchivoTarea extends Model
         return $this->belongsTo(Tarea::class);
     }
     
+    
 }

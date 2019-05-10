@@ -36,4 +36,8 @@ class Tarea extends Model
     public function actividades(){
         return $this->hasMany(Actividad::class);
     }
+
+    public function portafolio(){
+        return $this->belongsToMany('App\Portafolio','portafolio_id');
+    }
 }

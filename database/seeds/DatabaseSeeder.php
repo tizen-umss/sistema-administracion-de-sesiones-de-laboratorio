@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AsignacionSeed::class);
         $this->call(TareaSeed::class);
         $this->call(ActividadSeed::class);
+        $this->call(PortafolioSeed::class);
     }
 }

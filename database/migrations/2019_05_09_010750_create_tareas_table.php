@@ -21,12 +21,18 @@ class CreateTareasTable extends Migration
             $table->timestamp('fecha_entrega');
             $table->timestamps();
             $table->integer('user_id')->unsigned();            
+            // $table->integer('archivo_tareas_id')->unsigned();            
             
 
             $table->foreign('user_id')
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
+
+            // $table->foreign('archivo_tareas_id')
+            // ->references('id')
+            // ->on('archivo_tareas')
+            // ->onDelete('cascade');
         });
     }
 

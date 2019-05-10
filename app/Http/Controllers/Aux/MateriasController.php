@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Aux;
 
 use App\Materia;
+use App\Actividad;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,8 +26,9 @@ class MateriasController extends Controller
         // }
 
         $materias = Materia::all();
+        $actividades = Actividad::all();
 
-        return view('aux.materia.index', compact('materias'));
+        return view('aux.materia.index', compact('materias','actividades'));
     }
 
     /**

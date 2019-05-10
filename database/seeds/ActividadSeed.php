@@ -14,7 +14,7 @@ class ActividadSeed extends Seeder
     public function run()
     {
         $actividad = Actividad::create([
-            'id'=>'0',
+            'id'=>'10',
             'observaciones' => '* Copio * Abandono el laboratorio',
             'descripcion' => 'No hizo las tareas',
             'fecha' => Carbon::now(),

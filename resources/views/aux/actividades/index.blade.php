@@ -1,9 +1,50 @@
 @extends('layouts.app')
+
 @section('content')
 
 
+<h3 class="page-title"></h3>
+    
+    {{-- {!! Form::model($materia, ['method' => 'PUT', 'route' => ['admin.materias.update', $materia->id]]) !!} --}}
+
+<div class="panel panel-default">
+        <div class="panel-heading">
+            informacion
+        </div>
+
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    <p>CODIGO : </p>
+                </div>
+            </div>
+
+            <div class="row">
+                    <div class="col-xs-12 form-group">
+                        <p>DESCRIPCION : </p>
+                    </div>
+            </div>    
+      </div>
+</div>
+    
+
 <div class="box box-success">
     <div class="box-header">
+
+        <div class="form-group">
+            <label>Seleeccione la Tarea</label>
+            <select class="form-control select2" style="width: 100%;">
+              <option selected="selected">Alabama</option>
+              <option>Alaska</option>
+              <option disabled="disabled">California (disabled)</option>
+              <option>Delaware</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Washington</option>
+            </select>
+          </div>
+
       <h3 class="box-title">Faltas</h3>
     </div>
     <div class="box-body">
@@ -12,7 +53,7 @@
       <!-- checkbox -->
       <div class="form-group">
         <label>
-          <input type="checkbox" class="minimal" disabled>
+          <input type="checkbox" class="minimal" >
           Copio
         </label>
       </div>
@@ -20,28 +61,28 @@
       <!-- checkbox -->
       <div class="form-group">
         <label>
-          <input type="checkbox" class="minimal" disabled>
+          <input type="checkbox" class="minimal" >
           Recibio ayuda externa
         </label>
       </div>
       <!-- checkbox -->
       <div class="form-group">
         <label>
-          <input type="checkbox" class="minimal" disabled>
+          <input type="checkbox" class="minimal" >
           Perjudico a sus companieros
         </label>
       </div>
       <!-- checkbox -->
       <div class="form-group">
         <label>
-          <input type="checkbox" class="minimal" disabled>
+          <input type="checkbox" class="minimal" >
           Abandono el laboratorio
         </label>
       </div>
       <!-- checkbox -->
       <div class="form-group">
         <label>
-          <input type="checkbox" class="minimal" disabled>
+          <input type="checkbox" class="minimal" >
           Saco su computadora portatil
         </label>
       </div>
@@ -66,7 +107,7 @@
         </div>
 
         <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped {{ count($actividades) > 0 ? 'datatable' : '' }} dt-select">
+            <table class="table table-bordered table-striped {{ count($estudiantes) > 0 ? 'datatable' : '' }} dt-select">
                 <thead>
                     <tr>
                         <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
@@ -85,17 +126,17 @@
                 
                 <tbody>
                 
-                    @if (count($actividades) > 0 )
-                        @foreach ($actividades as $actividad)
-                            <tr data-entry-id="{{ $actividad->id }}">
+                    @if (count($estudiantes) > 0 )
+                        @foreach ($estudiantes as $estudiante)
+                            <tr data-entry-id="{{ $estudiante->id }}">
                                 <td></td>
 
-                                <td>{{ $actividad->fecha }}</td>
-                                <td>{{ $actividad->tarea->user->cedula }}</td>
-                                <td>{{ $actividad->tarea->user->apellidoPaterno }}</td>
-                                <td>{{ $actividad->tarea->user->apellidoMaterno }}</td>
-                                <td>{{ $actividad->observaciones }}</td>
-                                <td>{{ $actividad->descripcion }}</td>
+                                <td>{{ $estudiante->fecha }}</td>
+                                <td>{{ $estudiante->cedula }}</td>
+                                <td>{{ $estudiante->apellidoPaterno }}</td>
+                                <td>{{ $estudiante->apellidoMaterno }}</td>
+                                <td>{{ $estudiante->observaciones }}</td>
+                                <td>{{ $estudiante->descripcion }}</td>
                                 
                                 <td>                                    
                                 </td>
@@ -113,11 +154,11 @@
     </div>
 @stop
 
-@section('javascript') 
+  @section('javascript') 
     <script>
         window.route_mass_crud_entries_destroy = '{{ route('admin.materias.mass_destroy') }}';
     </script>
     
-@endsection
+  @endsection
 
-  @stop
+  
