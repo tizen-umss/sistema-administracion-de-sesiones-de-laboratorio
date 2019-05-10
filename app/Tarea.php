@@ -17,7 +17,7 @@ class Tarea extends Model
      * Una tarea pertenece a un usuario
      */
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\User','user_id');
     }
     /**
      * Una tarea tiene uno a muchos archivos de tareas
