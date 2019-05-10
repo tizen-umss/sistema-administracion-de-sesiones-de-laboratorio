@@ -19,8 +19,9 @@ class DatabaseSeeder extends Seeder
         $this->call(GrupoLaboratorioSeed::class);
         $this->call(GrupoMateriaSeed::class);
         $this->call(AsignacionSeed::class);
+        $this->call(PortafolioSeed::class);
         $this->call(TareaSeed::class);
         $this->call(ActividadSeed::class);
-        $this->call(PortafolioSeed::class);
+        
     }
 }

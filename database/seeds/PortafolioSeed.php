@@ -14,10 +14,12 @@ class PortafolioSeed extends Seeder
     {
         $portafolio = Portafolio::create([
             'id'=>0,
+            'user_id'=>0,
         ]);
 
         $portafolio = Portafolio::create([
             'id'=>1,
+            'user_id'=>1,
         ]);
     }
 }
