@@ -69,9 +69,16 @@
                                         <span class="label label-info label-many">{{ $role }}</span>
                                     @endforeach
                                 </td> --}}
+                                {{$num=$user->id}}
+                                {{ $actividadd = DB::table('users')
+                                          ->join('tareas','user_id', '=','users.id')
+                                          ->join('actividads','tareas_id','=','tareas.id')
+                                          ->where('users.id',$num)->get()->pluck('id')
+                                          ->first()
+                                }}
                                 <td>
-                                    <a href="{{ route('admin.users.edit',[$user->id]) }}" class="btn btn-xs btn-info">Actividad</a>
-                                    <a href="{{ route('admin.users.edit',[$user->id]) }}" class="btn btn-xs btn-primary">Portafolio</a>
+                                    <a href="{{ route('actividades.edit',[$actividadd]) }}" class="btn btn-xs btn-info">Actividad</a>
+                                    {{-- <a href="{{ route('portafolio.edit',[$portafolio->id]) }}" class="btn btn-xs btn-primary">Portafolio</a> --}}
                                 </td>
 
                             </tr>

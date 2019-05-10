@@ -17,6 +17,7 @@ class CreateActividadsTable extends Migration
             $table->increments('id');
             $table->string('observaciones');
             $table->string('descripcion');
+            $table->timestamp('fecha');
             $table->integer('tareas_id');
 
 
