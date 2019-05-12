@@ -23,10 +23,10 @@ class HoariosController extends Controller
         ->join('laboratorios', 'laboratorios.id', '=','grupos_laboratorio.laboratorio_id')
         ->join('materias', 'materias.id', '=', 'grupos_laboratorio.materia_id')
         ->select('*')->get();
-
+        // dd($gruposLabo);
        
 
-       return view('admin.horario.horario', compact('gruposLabo', 'laboratorios'));
+      return view('admin.horario.horario', compact('gruposLabo', 'laboratorios'));
     
     }
 
