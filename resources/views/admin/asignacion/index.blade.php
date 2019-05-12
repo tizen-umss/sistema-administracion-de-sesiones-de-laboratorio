@@ -35,11 +35,11 @@
                             <tr data-entry-id="{{ $asignacion->id }}">
                                 <td></td>
 
-                                {{-- <td>{{ $asignacion->nombreGrupoLab }}</td> --}}
+                                {{-- <td>{{ $asignacion->nombregrupolab }}</td> --}}
                                 {{-- <td>{{ $asignacion->each(function($asignacion){ $asignacion->materias;}) }}</td> --}}
                                 <td>{{ $asignacion->user()->pluck('name')->first() }}</td>
-                                <td>{{ $asignacion->grupoMateria()->pluck('nombreGrupoMat')->first() }}</td>
-                                <td>{{ $asignacion->grupoLaboratorio()->pluck('nombreGrupoLab')->first() }}</td>
+                                <td>{{ $asignacion->grupoMateria()->pluck('nombregrupomat')->first() }}</td>
+                                <td>{{ $asignacion->grupoLaboratorio()->pluck('nombregrupolab')->first() }}</td>
                                 {{-- <td>{{ $asignacion->laboratorio_id }}</td> --}}
                                 
 
