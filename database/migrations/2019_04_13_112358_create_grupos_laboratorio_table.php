@@ -15,11 +15,11 @@ class CreateGruposLaboratorioTable extends Migration
     {
         Schema::create('grupos_laboratorio', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombreGrupoLab');
+            $table->string('nombregrupolab');
             $table->integer('materia_id')->unsigned();
             $table->integer('laboratorio_id')->unsigned();
-            $table->string('diaGrupo');
-            $table->string('horaGrupo'); 
+            $table->string('diagrupo');
+            $table->string('horagrupo'); 
 
             $table->foreign('materia_id')
                 ->references('id')

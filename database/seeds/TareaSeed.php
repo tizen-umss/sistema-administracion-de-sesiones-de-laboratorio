@@ -14,8 +14,8 @@ class TareaSeed extends Seeder
     {
         $tarea = Tarea::create([
             'id'=>'0',
-            'tituloTarea' => 'presentacion tarea practica 1',
-            'descTarea' => 'la tarea se eesta presentando incompleta',
+            'titulotarea' => 'presentacion tarea practica 1',
+            'desctarea' => 'la tarea se eesta presentando incompleta',
             'calificacion' => 5,
             'fecha_entrega' => '2019-05-10 01:00:20.827343',
             'user_id' => 0,

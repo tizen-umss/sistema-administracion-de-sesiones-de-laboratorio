@@ -14,24 +14,24 @@ class LaboratorioSeed extends Seeder
     {
         $laboratorio = Laboratorio::create([
             'id'=>'0',
-            'nombreLab' => 'labo1',
-            'numMaquinas' => '30',
+            'nombrelab' => 'labo1',
+            'nummaquinas' => '30',
         ]);
         $laboratorio = Laboratorio::create([
-            'nombreLab' => 'labo2',
-            'numMaquinas' => '35',
+            'nombrelab' => 'labo2',
+            'nummaquinas' => '35',
         ]);
         $laboratorio = Laboratorio::create([
-            'nombreLab' => 'labo3',
-            'numMaquinas' => '30',
+            'nombrelab' => 'labo3',
+            'nummaquinas' => '30',
         ]);
         $laboratorio = Laboratorio::create([
-            'nombreLab' => 'labo4',
-            'numMaquinas' => '20',
+            'nombrelab' => 'labo4',
+            'nummaquinas' => '20',
         ]);
         $laboratorio = Laboratorio::create([
-            'nombreLab' => 'labo5',
-            'numMaquinas' => '38',
+            'nombrelab' => 'labo5',
+            'nummaquinas' => '38',
         ]);
     }
 }

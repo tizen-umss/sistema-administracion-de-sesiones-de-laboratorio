@@ -17,8 +17,8 @@ class CreatePublicacionsTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('desc');
-            $table->timestamp('fechaPublicaion');
-            $table->timestamp('fechaLimite');
+            $table->timestamp('fechapublicaion');
+            $table->timestamp('fechalimite');
             $table->integer('grupos_materia_id')->unsigned();;
             $table->timestamps();
 

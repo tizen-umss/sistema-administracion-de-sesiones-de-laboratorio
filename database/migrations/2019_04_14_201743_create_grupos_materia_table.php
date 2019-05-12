@@ -15,7 +15,7 @@ class CreateGruposMateriaTable extends Migration
     {
         Schema::create('grupos_materia', function (Blueprint $table) {        
             $table->increments('id');
-            $table->string('nombreGrupoMat');
+            $table->string('nombregrupomat');
             $table->integer('materia_id')->unsigned();
             $table->integer('user_id')->unsigned(); 
             // $table->morphs('model');

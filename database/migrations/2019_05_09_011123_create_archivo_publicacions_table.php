@@ -16,7 +16,7 @@ class CreateArchivoPublicacionsTable extends Migration
         Schema::create('archivo_publicacions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->timestamp('fechaPublicacion');
+            $table->timestamp('fechapublicacion');
             $table->integer('publicacion_id');
             $table->timestamps();
 

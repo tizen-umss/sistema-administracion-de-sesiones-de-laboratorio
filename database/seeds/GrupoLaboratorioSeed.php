@@ -14,11 +14,11 @@ class GrupoLaboratorioSeed extends Seeder
     {
         $grupoLaboratorio = GrupoLaboratorio::create([
             'id'=>'0',
-            'nombreGrupoLab' => 'grupo1',
+            'nombregrupolab' => 'grupo1',
             'materia_id' => '1',
             'laboratorio_id' => '1',
-            'diaGrupo' => 'lunes',
-            'horaGrupo' => '12:45-14:15',
+            'diagrupo' => 'lunes',
+            'horagrupo' => '12:45-14:15',
         ]);
     }
 }

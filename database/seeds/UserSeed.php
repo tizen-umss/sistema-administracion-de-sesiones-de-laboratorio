@@ -15,10 +15,10 @@ class UserSeed extends Seeder
         $user = User::create([
             'id'=>'0',
             'name' => 'carlos',
-            'apellidoPaterno' => 'huarachi',
-            'apellidoMaterno' => 'lopez',
+            'apellidopaterno' => 'huarachi',
+            'apellidomaterno' => 'lopez',
             'cedula' => '7095167',
-            'codigoSiss' => '201300964',
+            'codigosiss' => '201300964',
             'email' => 'admin@admin.com',
             'password' => bcrypt('holamundo')
         ]);
@@ -26,10 +26,10 @@ class UserSeed extends Seeder
 
         $user = User::create([
             'name' => 'maria',
-            'apellidoPaterno' => 'merlo',
-            'apellidoMaterno' => 'Mamani',
+            'apellidopaterno' => 'merlo',
+            'apellidomaterno' => 'Mamani',
             'cedula' => '7095167',
-            'codigoSiss' => '201300964',
+            'codigosiss' => '201300964',
             'email' => 'docente@docente.com',
             'password' => bcrypt('holamundo')
         ]);
@@ -37,10 +37,10 @@ class UserSeed extends Seeder
 
         $user = User::create([
             'name' => 'carolina',
-            'apellidoPaterno' => 'gomez',
-            'apellidoMaterno' => 'suares',
+            'apellidopaterno' => 'gomez',
+            'apellidomaterno' => 'suares',
             'cedula' => '7095167',
-            'codigoSiss' => '201300964',
+            'codigosiss' => '201300964',
             'email' => 'auxiliar@auxiliar.com',
             'password' => bcrypt('holamundo')
         ]);
@@ -48,10 +48,10 @@ class UserSeed extends Seeder
 
         $user = User::create([
             'name' => 'mario',
-            'apellidoPaterno' => 'soliz',
-            'apellidoMaterno' => 'Mamani',
+            'apellidopaterno' => 'soliz',
+            'apellidomaterno' => 'Mamani',
             'cedula' => '7095167',
-            'codigoSiss' => '201300964',
+            'codigosiss' => '201300964',
             'email' => 'estudiante@estudiante.com',
             'password' => bcrypt('holamundo')
         ]);
@@ -59,10 +59,10 @@ class UserSeed extends Seeder
 
         $user = User::create([
             'name' => 'sandra',
-            'apellidoPaterno' => 'carina',
-            'apellidoMaterno' => 'ramos',
+            'apellidopaterno' => 'carina',
+            'apellidomaterno' => 'ramos',
             'cedula' => '7095167',
-            'codigoSiss' => '201300964',
+            'codigosiss' => '201300964',
             'email' => 'estudiante@estudiante.com',
             'password' => bcrypt('holamundo')
         ]);
@@ -70,10 +70,10 @@ class UserSeed extends Seeder
 
         $user = User::create([
             'name' => 'luis',
-            'apellidoPaterno' => 'caisa',
-            'apellidoMaterno' => 'merlo',
+            'apellidopaterno' => 'caisa',
+            'apellidomaterno' => 'merlo',
             'cedula' => '7095167',
-            'codigoSiss' => '201300964',
+            'codigosiss' => '201300964',
             'email' => 'estudiante@estudiante.com',
             'password' => bcrypt('holamundo')
         ]);

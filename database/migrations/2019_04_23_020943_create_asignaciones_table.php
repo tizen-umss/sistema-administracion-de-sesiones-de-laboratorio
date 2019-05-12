@@ -16,20 +16,20 @@ class CreateAsignacionesTable extends Migration
         Schema::create('asignaciones', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned(); 
-            $table->integer('grupoMateria_id')->unsigned();
-            $table->integer('grupoLaboratorio_id')->unsigned();
+            $table->integer('grupomateria_id')->unsigned();
+            $table->integer('grupolaboratorio_id')->unsigned();
             
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
             
-            $table->foreign('grupoMateria_id')
+            $table->foreign('grupomateria_id')
                 ->references('id')
                 ->on('grupos_materia')
                 ->onDelete('cascade');
 
-            $table->foreign('grupoLaboratorio_id')
+            $table->foreign('grupolaboratorio_id')
                 ->references('id')
                 ->on('grupos_laboratorio')
                 ->onDelete('cascade');

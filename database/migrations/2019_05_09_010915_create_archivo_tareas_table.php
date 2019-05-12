@@ -16,7 +16,7 @@ class CreateArchivoTareasTable extends Migration
         Schema::create('archivo_tareas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->timestamp('fechaSubida');
+            $table->timestamp('fechasubida');
             $table->integer('tarea_id');
             $table->timestamps();
 

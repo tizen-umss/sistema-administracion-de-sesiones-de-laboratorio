@@ -14,21 +14,21 @@ class MateriaSeed extends Seeder
     {
         $materia = Materia::create([
             'id'=>'0',
-            'nombreMateria' => 'programacion',
-            'codigoMateria' => 'pro-50',
-            'descripcionMateria' => 'materia con practica de laboratorio',
+            'nombremateria' => 'programacion',
+            'codigomateria' => 'pro-50',
+            'descripcionmateria' => 'materia con practica de laboratorio',
         ]);
 
         $materia1 = Materia::create([
-            'nombreMateria' => 'elementos',
-            'codigoMateria' => 'ele-5',
-            'descripcionMateria' => 'materia con practica de laboratorio',
+            'nombremateria' => 'elementos',
+            'codigomateria' => 'ele-5',
+            'descripcionmateria' => 'materia con practica de laboratorio',
         ]);
 
         $materia2 = Materia::create([
-            'nombreMateria' => 'computacion',
-            'codigoMateria' => 'comp-1',
-            'descripcionMateria' => 'materia con practica de laboratorio',
+            'nombremateria' => 'computacion',
+            'codigomateria' => 'comp-1',
+            'descripcionmateria' => 'materia con practica de laboratorio',
         ]);
     }
 }

@@ -15,8 +15,8 @@ class CreateLaboratoriosTable extends Migration
     {
         Schema::create('laboratorios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombreLab');
-            $table->integer('numMaquinas');
+            $table->string('nombrelab');
+            $table->integer('nummaquinas');
 
             $table->timestamps();
         });

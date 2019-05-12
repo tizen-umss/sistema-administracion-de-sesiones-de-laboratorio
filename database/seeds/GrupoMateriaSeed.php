@@ -14,7 +14,7 @@ class GrupoMateriaSeed extends Seeder
     {
         $grupoMateria = GrupoMateria::create([
             'id'=>'0',
-            'nombreGrupoMat' => 'grupo1',
+            'nombregrupomat' => 'grupo1',
             'materia_id' => '1',
             'user_id' => '1',
         ]);
