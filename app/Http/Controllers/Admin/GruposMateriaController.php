@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\GrupoMateria;
 use App\User;
+use DB;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -56,11 +57,20 @@ class GruposMateriaController extends Controller
         // }
         // return $otro;
         // return view('admin.grupoMateria.create');
+        
         $roles = Role::all();
         $users = \App\User::with('roles')->get();
-        $nonmembers = $users->reject(function ($user, $key) {
-            return !$user->hasRole('estudiante');
+        $lola = $users->reject(function ($user, $key) {
+            return !$user->hasRole('docente');
         });
+
+
+        // $lola = $nonmembers->pluck(DB::raw('CONCAT(apellidopaterno , " ",apellidomaterno) AS apsfasdfafd'),'id');
+        // $lola = $nonmembers->only(['id','name']);
+
+        $nonmembers= $lola->map(function($user){return collect($user->toArray())->only(['id','name','apellidopaterno','apellidomaterno','cedula']);});
+
+
         // return $nonmembers;
         return view('admin.grupoMateria.create',compact('nonmembers'));
 

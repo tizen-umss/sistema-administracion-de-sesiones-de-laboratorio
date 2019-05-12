@@ -67,7 +67,7 @@
                             
                         @endif --}}
 
-                        {!! Form::select('user_id',$nonmembers->pluck('name','id'), old('user_id'), ['class' => 'form-control select2']) !!}
+                        {!! Form::select('user_id',$nonmembers->pluck('cedula','id'), old('user_id'), ['class' => 'form-control select2']) !!}
                     {{-- @endforeach  --}}
 
                     {{-- {!! Form::text('user_id', old('user_id'), ['class' => 'form-control', 'placeholder' => '']) !!} --}}

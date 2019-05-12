@@ -39,8 +39,8 @@
 
                                 <td>{{ $grupoLaboratorio->nombreGrupoLab }}</td>
                                 {{-- <td>{{ $grupoLaboratorio->each(function($grupoLaboratorio){ $grupoLaboratorio->materias;}) }}</td> --}}
-                                <td>{{ $grupoLaboratorio->materia()->pluck('nombreMateria')->first() }}</td>
-                                <td>{{ $grupoLaboratorio->laboratorio()->pluck('nombreLab')->first() }}</td>
+                                <td>{{ $grupoLaboratorio->materia()->pluck('nombremateria')->first() }}</td>
+                                <td>{{ $grupoLaboratorio->laboratorio()->pluck('nombrelab')->first() }}</td>
                                 {{-- <td>{{ $grupoLaboratorio->laboratorio_id }}</td> --}}
                                 @foreach($dias as $dia)
                             {{-- <h1> {{{$dia['mi']}}}</h1> --}}

@@ -71,4 +71,8 @@ class User extends Authenticatable
     public function portafolio(){
         return $this->hasTo('App\Portafolio','portafolio_id');
     }
+
+    public function getnombre(){
+    return $this->name.' '.$this->apellidopaterno;
+}
 }

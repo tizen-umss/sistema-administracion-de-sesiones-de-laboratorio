@@ -13,12 +13,12 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('nombreGrupoLab', 'Nombre Grupo Laboratorio*', ['class' => 'control-label']) !!}
-                    {!! Form::text('nombreGrupoLab', old('nombreGrupoLab'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('nombregrupolab', 'Nombre Grupo Laboratorio*', ['class' => 'control-label']) !!}
+                    {!! Form::text('nombregrupolab', old('nombregrupolab'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    <!-- @if($errors->has('nombreGrupoLab'))
+                    <!-- @if($errors->has('nombregrupolab'))
                         <p class="help-block">
-                            {{ $errors->first('nombreGrupoLab') }}
+                            {{ $errors->first('nombregrupolab') }}
                         </p>
                     @endif -->
                 </div>
@@ -38,7 +38,7 @@
 
                 <div class="col-xs-12 form-group">
                     {!! Form::label('materia_id', 'Seleccion Materia', ['class' => 'control-label']) !!}
-                    {!! Form::select('materia_id', (new App\Materia())->pluck('nombreMateria','id'), old('nombreMateria'), ['class' => 'form-control select2']) !!}
+                    {!! Form::select('materia_id', (new App\Materia())->pluck('nombremateria','id'), old('nombremateria'), ['class' => 'form-control select2']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('materia_id'))
                         <p class="help-block">
@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('laboratorio_id', 'Seleccione Laboratorio', ['class' => 'control-label']) !!}
-                    {!! Form::select('laboratorio_id', (new App\Laboratorio())->pluck('nombreLab','id'), old('laboratorio_id'), ['class' => 'form-control select2']) !!}
+                    {!! Form::select('laboratorio_id', (new App\Laboratorio())->pluck('nombrelab','id'), old('laboratorio_id'), ['class' => 'form-control select2']) !!}
                     {{-- {!! Form::text('laboratorio_id', old('laboratorio_id'), ['class' => 'form-control', 'placeholder' => '']) !!} --}}
                     <p class="help-block"></p>
                     <!-- @if($errors->has('laboratorio_id'))
@@ -65,13 +65,13 @@
 
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('diaGrupo', 'dia grupo', ['class' => 'control-label']) !!}
-                    {!! Form::select('diaGrupo',array('lunes'=>'lunes','martes'=>'martes','miercoles'=>'miercoles','jueves'=>'jueves','viernes'=>'viernes'), old('diaGrupo'), ['class' => 'form-control select2']) !!}
-                    {{-- {!! Form::text('diaGrupo', old('diaGrupo'), ['class' => 'form-control', 'placeholder' => '']) !!} --}}
+                    {!! Form::label('diagrupo', 'dia grupo', ['class' => 'control-label']) !!}
+                    {!! Form::select('diagrupo',array('lunes'=>'lunes','martes'=>'martes','miercoles'=>'miercoles','jueves'=>'jueves','viernes'=>'viernes'), old('diagrupo'), ['class' => 'form-control select2']) !!}
+                    {{-- {!! Form::text('diagrupo', old('diagrupo'), ['class' => 'form-control', 'placeholder' => '']) !!} --}}
                     <p class="help-block"></p>
-                    <!-- @if($errors->has('diaGrupo'))
+                    <!-- @if($errors->has('diagrupo'))
                         <p class="help-block">
-                            {{ $errors->first('diaGrupo') }}
+                            {{ $errors->first('diagrupo') }}
                         </p>
                     @endif -->
                 </div>
@@ -79,12 +79,12 @@
 
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('horaGrupo', 'hora grupo', ['class' => 'control-label']) !!}
-                    {!! Form::select('horaGrupo',['6:45-8:15'=>'6:45-8:15','8:15-9:45'=>'8:15-9:45','9:45-11:15'=>'9:45-11:15','11:15-12:45'=>'11:15-12:45','12:45-14:15'=>'12:45-14:15','14:15-15:45'=>'14:15-15:45','15:45-17:15'=>'15:45-17:15','17:15-18:45'=>'17:15-18:45','18:45-20:15'=>'18:45-20:15','20:15-21:45'=>'20:15-21:45'], old('horaGrupo'), ['class' => 'form-control select2']) !!}
+                    {!! Form::label('horagrupo', 'hora grupo', ['class' => 'control-label']) !!}
+                    {!! Form::select('horagrupo',['6:45-8:15'=>'6:45-8:15','8:15-9:45'=>'8:15-9:45','9:45-11:15'=>'9:45-11:15','11:15-12:45'=>'11:15-12:45','12:45-14:15'=>'12:45-14:15','14:15-15:45'=>'14:15-15:45','15:45-17:15'=>'15:45-17:15','17:15-18:45'=>'17:15-18:45','18:45-20:15'=>'18:45-20:15','20:15-21:45'=>'20:15-21:45'], old('horagrupo'), ['class' => 'form-control select2']) !!}
                     <p class="help-block"></p>
-                    <!-- @if($errors->has('horaGrupo'))
+                    <!-- @if($errors->has('horagrupo'))
                         <p class="help-block">
-                            {{ $errors->first('horaGrupo') }}
+                            {{ $errors->first('horagrupo') }}
                         </p>
                     @endif -->
                 </div>
