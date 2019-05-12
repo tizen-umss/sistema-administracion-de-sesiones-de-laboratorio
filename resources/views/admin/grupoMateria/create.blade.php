@@ -13,12 +13,12 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('nombreGrupoMat', 'Nombre Grupo Materia*', ['class' => 'control-label']) !!}
-                    {!! Form::text('nombreGrupoMat', old('nombreGrupoMat'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('nombrerupoMat', 'Nombre Grupo Materia*', ['class' => 'control-label']) !!}
+                    {!! Form::text('nombrerupoMat', old('nombrerupoMat'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    <!-- @if($errors->has('nombreGrupoMat'))
+                    <!-- @if($errors->has('nombrerupoMat'))
                         <p class="help-block">
-                            {{ $errors->first('nombreGrupoMat') }}
+                            {{ $errors->first('nombrerupoMat') }}
                         </p>
                     @endif -->
                 </div>
@@ -38,7 +38,7 @@
 
                 <div class="col-xs-12 form-group">
                     {!! Form::label('materia_id', 'Seleccion Materia', ['class' => 'control-label']) !!}
-                    {!! Form::select('materia_id', (new App\Materia())->pluck('nombreMateria','id'), old('nombreMateria'), ['class' => 'form-control select2']) !!}
+                    {!! Form::select('materia_id', (new App\Materia())->pluck('nombremateria','id'), old('nombremateria'), ['class' => 'form-control select2']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('materia_id'))
                         <p class="help-block">
@@ -67,7 +67,7 @@
                             
                         @endif --}}
 
-                        {!! Form::select('user_id',$nonmembers->pluck('codigoSiss','id'), old('user_id'), ['class' => 'form-control select2']) !!}
+                        {!! Form::select('user_id',$nonmembers->pluck('name','id'), old('user_id'), ['class' => 'form-control select2']) !!}
                     {{-- @endforeach  --}}
 
                     {{-- {!! Form::text('user_id', old('user_id'), ['class' => 'form-control', 'placeholder' => '']) !!} --}}
