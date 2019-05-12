@@ -13,7 +13,7 @@
         </button>
         <ul class="dropdown-menu">
             @foreach($laboratorios as $laboratorios)
-            <li><a href="{{$laboratorios->id}}">{{$laboratorios->nombreLab}}</a></li>
+            <li><a href="{{$laboratorios->id}}">{{$laboratorios->nombrelab." ".$laboratorios->nummaquinas}}</a></li>
             @endforeach
         </ul>
     </div>
@@ -46,6 +46,9 @@
 
 
             ?>
+
+
+
             @for ($i=0; $i< count($matrix); $i++ )
                 <tr>
                 @for ($j=0; $j< count($matrix[$i]); $j++ )
