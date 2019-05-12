@@ -37,7 +37,7 @@
 
                                 <td>{{ $grupoMateria->nombreGrupoMat }}</td>
                                 {{-- <td>{{ $grupoMateria->each(function($grupoMateria){ $grupoMateria->materias;}) }}</td> --}}
-                                <td>{{ $grupoMateria->materia()->pluck('nombreMateria')->first() }}</td>
+                                <td>{{ $grupoMateria->materia()->pluck('nombremateria')->first() }}</td>
                                 <td>{{ $grupoMateria->usuario()->pluck('name')->first() }}</td>
                                 {{-- <td>{{ $user->user()->pluck('name')->first() }}</td> --}}
                                 {{-- <td>{{ $grupoMateria->laboratorio()->pluck('nombreLab')->first() }}</td> --}}
