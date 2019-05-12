@@ -25,12 +25,13 @@
 
 
                 $matrix = array();
-                $matrix[0][0]='Lunes';
-                $matrix[0][1]='Martes';
-                $matrix[0][2]='Miercoles';
-                $matrix[0][3]='Jueves';
-                $matrix[0][4]='Viernes';
-                $matrix[0][5]='Sabado';
+                $matrix[0][0]='Hora/Dia';
+                $matrix[0][1]='Lunes';
+                $matrix[0][2]='Martes';
+                $matrix[0][3]='Miercoles';
+                $matrix[0][4]='Jueves';
+                $matrix[0][5]='Viernes';
+                $matrix[0][6]='Sabado';
 
                 $matrix[1][0]='06:45-08:15';
                 $matrix[2][0]='08:15-09:45';
@@ -47,14 +48,19 @@
             ?>
             @for ($i=0; $i< count($matrix); $i++ )
                 <tr>
-                @for ($j=0; $j< count($matrix[0]); $j++ )
+                @for ($j=0; $j< count($matrix[$i]); $j++ )
 
                     @if($i == 0)
-                        {{--  <th> {{ $matrix [$i][$j] }}</th>  --}}
-                        @echo "<th>$matrix [$i][$j]</th>";
+                        <th> {{ $matrix [$i][$j] }}</th>
+                       
                         @else
-                        {{--  <td> {{ $matrix [$i][$j] }}</td>  --}}
-                        @echo "<td>$matrix [$i][$j]</td>";
+                            
+                            @if($j == 0)
+                                <th> {{ $matrix [$i][$j] }}</th>
+                            @else 
+                                <td> {{ $matrix [$i][$j] }}</td>
+                            @endif
+                       
                     @endif
                 @endfor
                 </tr>
