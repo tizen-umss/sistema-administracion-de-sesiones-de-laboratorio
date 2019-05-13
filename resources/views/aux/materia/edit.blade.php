@@ -63,7 +63,7 @@
                                 <td>{{ $user->apellidoPaterno }}</td>
                                 <td>{{ $user->apellidoMaterno }}</td>
                                 <td>{{ $user->cedula }}</td>
-                                <td>{{ $user->codigoSiss }}</td>
+                                <td>{{ $user->codigosiss }}</td>
                                 {{-- <td>
                                     @foreach ($user->roles()->pluck('name') as $role)
                                         <span class="label label-info label-many">{{ $role }}</span>

@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('user_id', 'Seleccion Usuario', ['class' => 'control-label']) !!}
-                    {!! Form::select('user_id', (new App\User())->pluck('name','id'), old('user_id'), ['class' => 'form-control select2']) !!}
+                    {!! Form::select('user_id', (new App\User())->pluck('codigosiss','id'), old('user_id'), ['class' => 'form-control select2']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('user_id'))
                         <p class="help-block">
@@ -54,6 +54,9 @@
                     </div>
             </div>
 
+
+
+            
 
             
         </div>

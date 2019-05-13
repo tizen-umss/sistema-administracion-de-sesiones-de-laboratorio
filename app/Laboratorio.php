@@ -13,7 +13,7 @@ class Laboratorio extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['nombreLab','numMaquinas','updated_at','created_at'];
+    protected $fillable = ['nombrelab','nummaquinas','updated_at','created_at'];
 
     public function gruposLaboratorio(){
         return $this->hasMany('App\GrupoLaboratorio');

@@ -24,7 +24,7 @@ class StoreGruposMateriaRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombreGrupoMat' => 'required|max:20|unique:grupos_materia',
+            'nombregrupomat' => 'required|max:20|unique:grupos_materia',
         ];
     }
 }

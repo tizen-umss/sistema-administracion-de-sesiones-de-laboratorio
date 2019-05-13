@@ -30,9 +30,9 @@ return [
 		'title' => 'Materias',
 		'created_at' => 'Time',
 		'fields' => [
-			'nombreMateria' => 'Nombre Materia',
-			'codigoMateria' => 'Codigo Materia',
-			'descripcionMateria' => 'Descripcion Materia',
+			'nombremateria' => 'Nombre Materia',
+			'codigomateria' => 'Codigo Materia',
+			'descripcionmateria' => 'Descripcion Materia',
 		],
 	],
 
@@ -40,8 +40,8 @@ return [
 		'title' => 'Laboratorios',
 		'created_at' => 'Time',
 		'fields' => [
-			'nombreLab' => 'Nombre Laboratorio',
-			'numMaquinas' => 'Numero de Maquinas',
+			'nombrelab' => 'Nombre Laboratorio',
+			'nummaquinas' => 'Numero de Maquinas',
 		],
 	],
 
@@ -49,11 +49,11 @@ return [
 		'title' => 'Grupos de Laboratorio',
 		'created_at' => 'Time',
 		'fields' => [
-			'nombreGrupoLab' => 'Nombre grupo laboratorio',
+			'nombregrupolab' => 'Nombre grupo laboratorio',
 			'materia_id' => 'materia id',
 			'laboratorio_id' => 'laboratorio id',
-			'diaGrupo' => 'Dia',
-			'horaGrupo' => 'Hora',
+			'diagrupo' => 'Dia',
+			'horagrupo' => 'Hora',
 		],
 	],
 
@@ -61,7 +61,7 @@ return [
 		'title' => 'Grupos de Materia',
 		'created_at' => 'Time',
 		'fields' => [
-			'nombreGrupoMat' => 'Nombre grupo laboratorio',
+			'nombregrupomat' => 'Nombre grupo laboratorio',
 			'materia_id' => 'materia',
 			'user_id' => 'Docente ',
 		],
@@ -72,8 +72,8 @@ return [
 		'created_at' => 'Time',
 		'fields' => [
 			'user_id' => 'usuario',
-			'grupoMateria_id' => 'Grupo Materia',
-			'grupoLaboratorio_id' => 'Grupo Laboratorio ',
+			'grupomateria_id' => 'Grupo Materia',
+			'grupolaboratorio_id' => 'Grupo Laboratorio ',
 		],
 	],
 
@@ -82,10 +82,10 @@ return [
 		'created_at' => 'Time',
 		'fields' => [
 			'name' => 'Nombre',
-			'apellidoPaterno' => 'Apellido Paterno',
-			'apellidoMaterno' => 'Apellido Materno',
+			'apellidopaterno' => 'Apellido Paterno',
+			'apellidomaterno' => 'Apellido Materno',
 			'cedula' => 'Cedula',
-			'codigoSiss' => 'CodigoSiss',
+			'codigosiss' => 'Codigosiss',
 			'email' => 'Correo',
 			'password' => 'Contrasenia',
 			'roles' => 'Roles',

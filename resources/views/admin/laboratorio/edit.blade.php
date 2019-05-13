@@ -13,12 +13,12 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('nombreLab', 'Nombre Laboratorio*', ['class' => 'control-label']) !!}
-                    {!! Form::text('nombreLab', old('nombreLab'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('nombrelab', 'Nombre Laboratorio*', ['class' => 'control-label']) !!}
+                    {!! Form::text('nombrelab', old('nombrelab'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    <!-- @if($errors->has('nombreLab'))
+                    <!-- @if($errors->has('nombrelab'))
                         <p class="help-block">
-                            {{ $errors->first('nombreLab') }}
+                            {{ $errors->first('nombrelab') }}
                         </p>
                     @endif -->
                 </div>
@@ -26,12 +26,12 @@
             
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('numMaquinas', 'Codigo Maquinas*', ['class' => 'control-label']) !!}
-                    {!! Form::text('numMaquinas', old('numMaquinas'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('nummaquinas', 'Codigo Maquinas*', ['class' => 'control-label']) !!}
+                    {!! Form::text('nummaquinas', old('nummaquinas'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    <!-- @if($errors->has('numMaquinas'))
+                    <!-- @if($errors->has('nummaquinas'))
                         <p class="help-block">
-                            {{ $errors->first('numMaquinas') }}
+                            {{ $errors->first('nummaquinas') }}
                         </p>
                     @endif -->
                 </div>

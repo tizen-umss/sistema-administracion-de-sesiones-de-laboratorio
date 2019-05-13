@@ -24,10 +24,10 @@ class StoreUsersRequest extends FormRequest
     {
         return [
             'name' => 'required|regex:/^[A-Za-z]*\s?()[A-Za-z]*$/|string|max:30',
-            'apellidoPaterno' => 'required|alpha|string|max:30',
-            'apellidoMaterno' => 'alpha|string|max:30',
+            'apellidopaterno' => 'required|alpha|string|max:30',
+            'apellidomaterno' => 'alpha|string|max:30',
             'cedula' => 'required|numeric|digits_between:5,8|unique:users,cedula',
-            'codigoSiss' => 'required|numeric|digits_between:9,10|unique:users,codigoSiss',
+            'codigosiss' => 'required|numeric|digits_between:9,10|unique:users,codigosiss',
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'roles' => 'required',

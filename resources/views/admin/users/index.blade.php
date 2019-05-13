@@ -20,10 +20,10 @@
                         <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
                         
                         <th>@lang('global.users.fields.name')</th>
-                        <th>@lang('global.users.fields.apellidoPaterno')</th>
-                        <th>@lang('global.users.fields.apellidoMaterno')</th>
+                        <th>@lang('global.users.fields.apellidopaterno')</th>
+                        <th>@lang('global.users.fields.apellidomaterno')</th>
                         <th>@lang('global.users.fields.cedula')</th>
-                        <th>@lang('global.users.fields.codigoSiss')</th>
+                        <th>@lang('global.users.fields.codigosiss')</th>
                         <th>@lang('global.users.fields.email')</th>
                         <th>@lang('global.users.fields.roles')</th>
                         <th>&nbsp;</th>
@@ -40,10 +40,10 @@
                                 <td></td>
 
                                 <td>{{ $user->name }}</td>
-                                <td>{{ $user->apellidoPaterno }}</td>
-                                <td>{{ $user->apellidoMaterno }}</td>
+                                <td>{{ $user->apellidopaterno }}</td>
+                                <td>{{ $user->apellidomaterno }}</td>
                                 <td>{{ $user->cedula }}</td>
-                                <td>{{ $user->codigoSiss }}</td>
+                                <td>{{ $user->codigosiss }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
                                     @foreach ($user->roles()->pluck('name') as $role)

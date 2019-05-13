@@ -19,7 +19,7 @@
                     <tr>
                         <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
                         
-                        <th>@lang('global.gruposMateria.fields.nombreGrupoMat')</th>
+                        <th>@lang('global.gruposMateria.fields.nombregrupomat')</th>
                         <th>@lang('global.gruposMateria.fields.materia_id')</th>
                         <th>@lang('global.gruposMateria.fields.user_id')</th>
                 
@@ -35,7 +35,7 @@
                             <tr data-entry-id="{{ $grupoMateria->id }}">
                                 <td></td>
 
-                                <td>{{ $grupoMateria->nombreGrupoMat }}</td>
+                                <td>{{ $grupoMateria->nombregrupomat }}</td>
                                 {{-- <td>{{ $grupoMateria->each(function($grupoMateria){ $grupoMateria->materias;}) }}</td> --}}
                                 <td>{{ $grupoMateria->materia()->pluck('nombremateria')->first() }}</td>
                                 <td>{{ $grupoMateria->usuario()->pluck('name')->first() }}</td>

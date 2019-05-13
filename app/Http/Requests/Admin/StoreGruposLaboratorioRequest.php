@@ -24,7 +24,7 @@ class StoreGruposLaboratorioRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombreGrupoLab' => 'required|max:20|unique:grupos_laboratorio',
+            'nombregrupolab' => 'required|max:20|unique:grupos_laboratorio',
             'diaGrupo' => 'required',
             'horaGrupo' => 'required',
         ];

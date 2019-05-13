@@ -60,19 +60,34 @@ class GruposMateriaController extends Controller
         
         $roles = Role::all();
         $users = \App\User::with('roles')->get();
-        $lola = $users->reject(function ($user, $key) {
-            return !$user->hasRole('docente');
+        $nonmembers = $users->reject(function ($user, $key) {
+            return !$user->hasRole('estudiante');
         });
 
 
         // $lola = $nonmembers->pluck(DB::raw('CONCAT(apellidopaterno , " ",apellidomaterno) AS apsfasdfafd'),'id');
         // $lola = $nonmembers->only(['id','name']);
 
-        $nonmembers= $lola->map(function($user){return collect($user->toArray())->only(['id','name','apellidopaterno','apellidomaterno','cedula']);});
+        // $nonmembers = $lola->map(function($user){return collect($user->toArray())->only(['id','name','apellidopaterno','apellidomaterno','cedula'])->all();});
 
+        // dd($nonmembers);
+        // $array= json_decode($nonmembers, true);
+        // collect($array);
+        // return $nonmembers;
 
         // return $nonmembers;
-        return view('admin.grupoMateria.create',compact('nonmembers'));
+        // return $nonmembers;
+
+        $hola= Collect([]);
+        foreach($nonmembers as $nonmember){
+            $ids=$nonmember->id;
+            $full=$nonmember->name." ".$nonmember->apellidopaterno." ".$nonmember->apellidomaterno." ".$nonmember->cedula;
+            $complet=Collect(['$key'=>$ids,'$var'=>$full]);
+            $hola->push($complet);
+        }
+
+        // return $hola;
+        return view('admin.grupoMateria.create',compact('hola'));
 
         // return view('admin.report_roles', ['roles'=>$roles, 'nonmembers' => $nonmembers]);
     }

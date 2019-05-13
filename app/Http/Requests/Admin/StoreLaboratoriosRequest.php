@@ -24,8 +24,8 @@ class StoreLaboratoriosRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombreLab' => 'required|max:20|unique:laboratorios',
-            'numMaquinas' => 'required|max:3',
+            'nombrelab' => 'required|max:20|unique:laboratorios',
+            'nummaquinas' => 'required|max:3',
         ];
     }
 }

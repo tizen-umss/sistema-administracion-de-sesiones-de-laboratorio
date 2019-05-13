@@ -181,6 +181,6 @@ return [
         'apellidoPaterno'       => 'Apellido Paterno',
         'apellidoMaterno'       => 'Apellido Materno',
         'cedula'                => 'Cedula',
-        'codigoSiss'            => 'Codigo Siss',
+        'codigosiss'            => 'Codigo Siss',
     ],
 ];
