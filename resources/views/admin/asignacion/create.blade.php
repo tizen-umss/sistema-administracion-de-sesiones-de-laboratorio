@@ -29,7 +29,8 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('grupomateria_id', 'Seleccione Grupo Materia', ['class' => 'control-label']) !!}
-                    {!! Form::select('grupomateria_id', (new App\GrupoMateria())->pluck('nombregrupomat','id'), old('grupomateria_id'), ['class' => 'form-control select2']) !!}
+                    {!! Form::select('grupomateria_id', $matgrupo->pluck('$var','$key'), old('grupomateria_id'), ['class' => 'form-control select2']) !!}
+                    {{-- {!! Form::select('grupomateria_id', (new App\GrupoMateria())->pluck('nombregrupomat','id'), old('grupomateria_id'), ['class' => 'form-control select2']) !!} --}}
                     {{-- {!! Form::text('grupomateria_id', old('grupomateria_id'), ['class' => 'form-control', 'placeholder' => '']) !!} --}}
                     <p class="help-block"></p>
                     <!-- @if($errors->has('grupomateria_id'))

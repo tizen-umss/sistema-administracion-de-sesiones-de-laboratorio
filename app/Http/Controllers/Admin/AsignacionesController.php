@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\Admin\StoreAsignacionesRequest;
 use App\Http\Requests\Admin\UpdateAsignacionesRequest;
 use Spatie\Permission\Models\Role;
+use DB;
 
 class AsignacionesController extends Controller
 {
@@ -56,10 +57,19 @@ class AsignacionesController extends Controller
             $hola->push($complet);
         }
 
-        
+        $gruposMateria=DB::table('materias')->join('grupos_materia','grupos_materia.materia_id','=','materias.id')->get();
 
+        $matgrupo= Collect([]);
+        foreach($gruposMateria as $grupmat){
+            $ids=$grupmat->id;
+            $full=$grupmat->nombregrupomat." ".$grupmat->nombremateria;
+            $complet=Collect(['$key'=>$ids,'$var'=>$full]);
+            $matgrupo->push($complet);
+        }
+
+        // return $matgrupo;
         // return $nonmembers;
-        return view('admin.asignacion.create',compact('hola'));
+        return view('admin.asignacion.create',compact('hola','matgrupo'));
     }
 
 
