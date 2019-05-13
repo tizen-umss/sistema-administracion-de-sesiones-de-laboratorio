@@ -24,9 +24,9 @@ class UpdateGruposLaboratorioRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombreGrupoLab' => 'required|max:20|unique:grupos_laboratorio,nombreGrupoLab,'.$this->route('gruposLaboratorio'),
-            'diaGrupo' => 'required',
-            'horaGrupo' => 'required',
+            'nombregrupolab' => 'required|max:20|unique:grupos_laboratorio,nombregrupolab,'.$this->route('gruposLaboratorio'),
+            'diagrupo' => 'required',
+            'horagrupo' => 'required',
         ];
     }
 }

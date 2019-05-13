@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class GrupoMateria extends Model
 {
     protected $table = 'grupos_materia';
-    protected $fillable = ['nombreGrupoMat','materia_id','user_id','updated_at','created_at'];
+    protected $fillable = ['nombregrupomat','materia_id','user_id','updated_at','created_at'];
 
     public function materia(){
         return $this->belongsTo('App\Materia');

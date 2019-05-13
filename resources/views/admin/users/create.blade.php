@@ -26,12 +26,12 @@
 
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('apellidoPaterno', 'Apellido Paterno*', ['class' => 'control-label']) !!}
-                    {!! Form::text('apellidoPaterno', old('apellidoPaterno'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('apellidopaterno', 'Apellido Paterno*', ['class' => 'control-label']) !!}
+                    {!! Form::text('apellidopaterno', old('apellidopaterno'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    <!-- @if($errors->has('apellidoPaterno'))
+                    <!-- @if($errors->has('apellidopaterno'))
                         <p class="help-block">
-                            {{ $errors->first('apellidoPaterno') }}
+                            {{ $errors->first('apellidopaterno') }}
                         </p>
                     @endif -->
                 </div>
@@ -39,12 +39,12 @@
 
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('apellidoMaterno', 'Apellido Materno', ['class' => 'control-label']) !!}
-                    {!! Form::text('apellidoMaterno', old('apellidoMaterno'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('apellidomaterno', 'Apellido Materno', ['class' => 'control-label']) !!}
+                    {!! Form::text('apellidomaterno', old('apellidomaterno'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    <!-- @if($errors->has('apellidoMaterno'))
+                    <!-- @if($errors->has('apellidomaterno'))
                         <p class="help-block">
-                            {{ $errors->first('apellidoMaterno') }}
+                            {{ $errors->first('apellidomaterno') }}
                         </p>
                     @endif -->
                 </div>
@@ -65,12 +65,12 @@
 
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('codigoSiss', 'Codigo Siss*', ['class' => 'control-label']) !!}
-                    {!! Form::text('codigoSiss', old('codigoSiss'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('codigosiss', 'Codigo Siss*', ['class' => 'control-label']) !!}
+                    {!! Form::text('codigosiss', old('codigosiss'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    <!-- @if($errors->has('codigoSiss'))
+                    <!-- @if($errors->has('codigosiss'))
                         <p class="help-block">
-                            {{ $errors->first('codigoSiss') }}
+                            {{ $errors->first('codigosiss') }}
                         </p>
                     @endif -->
                 </div>

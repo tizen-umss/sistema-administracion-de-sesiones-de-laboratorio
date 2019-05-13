@@ -9,6 +9,8 @@ use App\Asignacion;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\Admin\StoreAsignacionesRequest;
 use App\Http\Requests\Admin\UpdateAsignacionesRequest;
+use Spatie\Permission\Models\Role;
+use DB;
 
 class AsignacionesController extends Controller
 {
@@ -40,8 +42,39 @@ class AsignacionesController extends Controller
         if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-        return view('admin.asignacion.create');
+        
+        $roles = Role::all();
+        $users = \App\User::with('roles')->get();
+        $nonmembers = $users->reject(function ($user, $key) {
+            return $user->hasRole('docente')||$user->hasRole('administrator');
+        });
+
+        $hola= Collect([]);
+        foreach($nonmembers as $nonmember){
+            $ids=$nonmember->id;
+            $full=$nonmember->name." ".$nonmember->apellidopaterno." ".$nonmember->apellidomaterno." ".$nonmember->cedula;
+            $complet=Collect(['$key'=>$ids,'$var'=>$full]);
+            $hola->push($complet);
+        }
+
+        $gruposMateria=DB::table('materias')->join('grupos_materia','grupos_materia.materia_id','=','materias.id')->get();
+
+        $matgrupo= Collect([]);
+        foreach($gruposMateria as $grupmat){
+            $ids=$grupmat->id;
+            $full=$grupmat->nombregrupomat." ".$grupmat->nombremateria;
+            $complet=Collect(['$key'=>$ids,'$var'=>$full]);
+            $matgrupo->push($complet);
+        }
+
+        // return $matgrupo;
+        // return $nonmembers;
+        return view('admin.asignacion.create',compact('hola','matgrupo'));
     }
+
+
+
+
 
     /**
      * Store a newly created Asignacion in storage.

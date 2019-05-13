@@ -20,8 +20,8 @@
                         <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
                         
                         <th>@lang('global.asignaciones.fields.user_id')</th>
-                        <th>@lang('global.asignaciones.fields.grupoMateria_id')</th>
-                        <th>@lang('global.asignaciones.fields.grupoLaboratorio_id')</th>
+                        <th>@lang('global.asignaciones.fields.grupomateria_id')</th>
+                        <th>@lang('global.asignaciones.fields.grupolaboratorio_id')</th>
                 
                         <th>&nbsp;</th>
                         

@@ -19,9 +19,9 @@
                     <tr>
                         <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
                         
-                        <th>@lang('global.materias.fields.nombreMateria')</th>
-                        <th>@lang('global.materias.fields.codigoMateria')</th>
-                        <th>@lang('global.materias.fields.descripcionMateria')</th>
+                        <th>@lang('global.materias.fields.nombremateria')</th>
+                        <th>@lang('global.materias.fields.codigomateria')</th>
+                        <th>@lang('global.materias.fields.descripcionmateria')</th>
                 
                         <th>&nbsp;</th>
                         
@@ -35,9 +35,9 @@
                             <tr data-entry-id="{{ $materia->id }}">
                                 <td></td>
 
-                                <td>{{ $materia->nombreMateria }}</td>
-                                <td>{{ $materia->codigoMateria }}</td>
-                                <td>{{ $materia->descripcionMateria }}</td>
+                                <td>{{ $materia->nombremateria }}</td>
+                                <td>{{ $materia->codigomateria }}</td>
+                                <td>{{ $materia->descripcionmateria }}</td>
                                 
                                 <td>
                                     <a href="{{ route('admin.materias.edit',[$materia->id]) }}" class="btn btn-xs btn-info">@lang('global.app_edit')</a>

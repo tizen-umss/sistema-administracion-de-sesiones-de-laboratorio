@@ -52,7 +52,7 @@ class RegisterController extends Controller
         //     'apellidoPaterno' => 'required|alpha|string|max:30',
         //     'apellidoMaterno' => 'alpha|string|max:30',
         //     'cedula' => 'required|unique:users|numeric|max:255',
-        //     'codigoSiss' => 'numeric|required|unique:users|digits_between:9,10',
+        //     'codigosiss' => 'numeric|required|unique:users|digits_between:9,10',
         //     'email' => 'required|string|email|max:255|unique:users',
         //     'password' => 'required|string|min:6|confirmed',
 
@@ -60,7 +60,7 @@ class RegisterController extends Controller
         //     // 'apellidoPaterno' => 'required|alpha|string|max:30',
         //     // 'apellidoMaterno' => 'alpha|string|max:30',
         //     // 'cedula' => 'numeric|required|unique:users,cedula|digits_between:5,8',
-        //     // 'codigoSiss' => 'numeric|required|unique:users,codigoSiss|digits_between:9,10',
+        //     // 'codigosiss' => 'numeric|required|unique:users,codigosiss|digits_between:9,10',
         //     // 'email' => 'required|email|unique:users,email',
         //     // 'password' => 'required',
         //     // 'roles' => 'required',
@@ -82,7 +82,7 @@ class RegisterController extends Controller
             'apellidoPaterno' => $data['apellidoPaterno'],
             'apellidoMaterno' => $data['apellidoMaterno'],
             'cedula' => $data['cedula'],
-            'codigoSiss' => $data['codigoSiss'],
+            'codigosiss' => $data['codigosiss'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);

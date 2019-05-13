@@ -11,17 +11,17 @@ class Asignacion extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['user_id','grupoMateria_id','grupoLaboratorio_id','updated_at','created_at'];
+    protected $fillable = ['user_id','grupomateria_id','grupolaboratorio_id','updated_at','created_at'];
 
     public function user(){
       return $this->belongsTo('App\User','user_id');
     }
 
     public function grupoMateria(){
-      return $this->belongsTo('App\GrupoMateria','grupoMateria_id');
+      return $this->belongsTo('App\GrupoMateria','grupomateria_id');
     }
 
     public function grupoLaboratorio(){
-      return $this->belongsTo('App\GrupoLaboratorio','grupoLaboratorio_id');
+      return $this->belongsTo('App\GrupoLaboratorio','grupolaboratorio_id');
     }
 }

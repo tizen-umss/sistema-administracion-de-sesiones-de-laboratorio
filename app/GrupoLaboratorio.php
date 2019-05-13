@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class GrupoLaboratorio extends Model
 {
     protected $table = 'grupos_laboratorio';
-    protected $fillable = ['nombreGrupoLab','materia_id','laboratorio_id','diaGrupo','horaGrupo','updated_at','created_at'];
+    protected $fillable = ['nombregrupolab','materia_id','laboratorio_id','diagrupo','horagrupo','updated_at','created_at'];
  
 
     public function materia(){

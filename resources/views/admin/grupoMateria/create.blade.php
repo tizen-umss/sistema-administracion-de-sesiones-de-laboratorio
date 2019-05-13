@@ -13,12 +13,12 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('nombrerupoMat', 'Nombre Grupo Materia*', ['class' => 'control-label']) !!}
-                    {!! Form::text('nombrerupoMat', old('nombrerupoMat'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('nombregrupomat', 'Nombre Grupo Materia*', ['class' => 'control-label']) !!}
+                    {!! Form::text('nombregrupomat', old('nombregrupomat'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    <!-- @if($errors->has('nombrerupoMat'))
+                    <!-- @if($errors->has('nombregrupomat'))
                         <p class="help-block">
-                            {{ $errors->first('nombrerupoMat') }}
+                            {{ $errors->first('nombregrupomat') }}
                         </p>
                     @endif -->
                 </div>
@@ -67,7 +67,12 @@
                             
                         @endif --}}
 
-                        {!! Form::select('user_id',$nonmembers->pluck('cedula','id'), old('user_id'), ['class' => 'form-control select2']) !!}
+                        {!! Form::select('user_id',$hola->pluck('$var','$key'), old('user_id'), ['class' => 'form-control select2']) !!}
+                        {{-- @foreach($nonmembers as $nonmember)
+                            <li>{{$nonmember->name." ".$nonmember->apellidopaterno." ".$nonmember->apellidomaterno." ".$nonmember->cedula}}</li>
+                        @endforeach --}}
+
+
                     {{-- @endforeach  --}}
 
                     {{-- {!! Form::text('user_id', old('user_id'), ['class' => 'form-control', 'placeholder' => '']) !!} --}}
@@ -79,6 +84,28 @@
                             {{ $errors->first('user_id') }}
                         </p>
                     @endif -->
+                </div>
+            </div>
+
+
+
+
+            {{-- @foreach($nonmembers as $nonmember)
+                <li>{{$nonmember->name." ".$nonmember->email}}</li>
+            @endforeach --}}
+                                        
+            <div class="row">
+                <div class="col-x-12 form-group">
+                    {{-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Seleccione una opción
+                            <span class="caret"></span>
+                    </button> --}}
+                    <ul class="dropdown-menu">
+                        {{-- @foreach($nonmembers as $nonmember)
+                            <li>{{$nonmember->name." ".$nonmember->apellidopaterno." ".$nonmember->apellidomaterno." ".$nonmember->cedula}}</li>
+                        @endforeach --}}
+                    </ul>
                 </div>
             </div>
             

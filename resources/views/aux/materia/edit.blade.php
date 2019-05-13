@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">{{$materia->nombreMateria}}</h3>
+    <h3 class="page-title">{{$materia->nombremateria}}</h3>
     
     {{-- {!! Form::model($materia, ['method' => 'PUT', 'route' => ['admin.materias.update', $materia->id]]) !!} --}}
 
@@ -14,13 +14,13 @@
 
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    <p>CODIGO : {{$materia->codigoMateria}}</p>
+                    <p>CODIGO : {{$materia->codigomateria}}</p>
                 </div>
             </div>
 
             <div class="row">
                     <div class="col-xs-12 form-group">
-                        <p>DESCRIPCION : {{$materia->descripcionMateria}}</p>
+                        <p>DESCRIPCION : {{$materia->descripcionmateria}}</p>
                     </div>
             </div>    
         </div>
@@ -42,10 +42,10 @@
                         <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
                         
                         <th>@lang('global.users.fields.name')</th>
-                        <th>@lang('global.users.fields.apellidoPaterno')</th>
-                        <th>@lang('global.users.fields.apellidoMaterno')</th>
+                        <th>@lang('global.users.fields.apellidopaterno')</th>
+                        <th>@lang('global.users.fields.apellidomaterno')</th>
                         <th>@lang('global.users.fields.cedula')</th>
-                        <th>@lang('global.users.fields.codigoSiss')</th>
+                        <th>@lang('global.users.fields.codigosiss')</th>
                         <th>&nbsp;</th>
                         
                     </tr>
@@ -60,10 +60,10 @@
                                 <td></td>
 
                                 <td>{{ $user->name }}</td>
-                                <td>{{ $user->apellidoPaterno }}</td>
-                                <td>{{ $user->apellidoMaterno }}</td>
+                                <td>{{ $user->apellidopaterno }}</td>
+                                <td>{{ $user->apellidomaterno }}</td>
                                 <td>{{ $user->cedula }}</td>
-                                <td>{{ $user->codigoSiss }}</td>
+                                <td>{{ $user->codigosiss }}</td>
                                 {{-- <td>
                                     @foreach ($user->roles()->pluck('name') as $role)
                                         <span class="label label-info label-many">{{ $role }}</span>
@@ -77,7 +77,7 @@
                                           ->first()
                                 }}
                                 <td>
-                                    <a href="{{ route('actividades.edit',[$actividadd]) }}" class="btn btn-xs btn-info">Actividad</a>
+                                    <a href="{{ route('actividades.edit',[$num]) }}" class="btn btn-xs btn-info">Actividad</a>
                                     {{-- <a href="{{ route('portafolio.edit',[$portafolio->id]) }}" class="btn btn-xs btn-primary">Portafolio</a> --}}
                                 </td>
 

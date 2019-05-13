@@ -22,7 +22,7 @@ class Materia extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['nombreMateria','codigoMateria', 'descripcionMateria','updated_at','created_at'];
+    protected $fillable = ['nombremateria','codigomateria', 'descripcionmateria','updated_at','created_at'];
 
     public function grupoLaboratorio(){
         return $this->hasOne('App\GrupoLaboratorio');

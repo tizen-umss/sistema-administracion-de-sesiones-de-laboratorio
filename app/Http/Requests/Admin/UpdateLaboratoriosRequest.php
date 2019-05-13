@@ -24,8 +24,8 @@ class UpdateLaboratoriosRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombreLab' => 'required|max:20|unique:laboratorios,nombreLab,'.$this->route('laboratorio'),
-            'numMaquinas' => 'required|max:3',
+            'nombrelab' => 'required|max:20|unique:laboratorios,nombrelab,'.$this->route('laboratorio'),
+            'nummaquinas' => 'required|max:3',
         ];
     }
 }

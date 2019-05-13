@@ -133,8 +133,8 @@
 
                                 <td>{{ $estudiante->fecha }}</td>
                                 <td>{{ $estudiante->cedula }}</td>
-                                <td>{{ $estudiante->apellidoPaterno }}</td>
-                                <td>{{ $estudiante->apellidoMaterno }}</td>
+                                <td>{{ $estudiante->apellidopaterno }}</td>
+                                <td>{{ $estudiante->apellidomaterno }}</td>
                                 <td>{{ $estudiante->observaciones }}</td>
                                 <td>{{ $estudiante->descripcion }}</td>
                                 

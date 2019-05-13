@@ -12,10 +12,10 @@ use Spatie\Permission\Models\Role;
  *
  * @package App
  * @property string $name
- * @property string $apellidoPaterno
- * @property string $apellidoMaterno
+ * @property string $apellidopaterno
+ * @property string $apellidomaterno
  * @property string $cedula
- * @property string $codigoSiss
+ * @property string $codigosiss
  * @property string $email
  * @property string $password
  * @property string $remember_token
@@ -29,7 +29,7 @@ class User extends Authenticatable
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['name','apellidoPaterno', 'apellidoMaterno', 'cedula', 'codigoSiss', 'email', 'password', 'remember_token'];
+    protected $fillable = ['name','apellidopaterno', 'apellidomaterno', 'cedula', 'codigosiss', 'email', 'password', 'remember_token'];
     
     
     /**
