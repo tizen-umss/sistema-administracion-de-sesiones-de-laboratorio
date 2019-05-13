@@ -24,8 +24,8 @@ class UpdateMateriasRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombremateria' => 'required|max:20|unique:materias,nombreMateria,'.$this->route('materia'),
-            'codigomateria' => 'required|max:7|unique:materias,codigoMateria,'.$this->route('materia'),
+            'nombremateria' => 'required|max:20|unique:materias,nombremateria,'.$this->route('materia'),
+            'codigomateria' => 'required|max:7|unique:materias,codigomateria,'.$this->route('materia'),
             'descripcionmateria' => 'max:30',
         ];
     }
