@@ -9,6 +9,7 @@ use App\Asignacion;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\Admin\StoreAsignacionesRequest;
 use App\Http\Requests\Admin\UpdateAsignacionesRequest;
+use Spatie\Permission\Models\Role;
 
 class AsignacionesController extends Controller
 {
@@ -40,8 +41,30 @@ class AsignacionesController extends Controller
         if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-        return view('admin.asignacion.create');
+        
+        $roles = Role::all();
+        $users = \App\User::with('roles')->get();
+        $nonmembers = $users->reject(function ($user, $key) {
+            return $user->hasRole('docente')||$user->hasRole('administrator');
+        });
+
+        $hola= Collect([]);
+        foreach($nonmembers as $nonmember){
+            $ids=$nonmember->id;
+            $full=$nonmember->name." ".$nonmember->apellidopaterno." ".$nonmember->apellidomaterno." ".$nonmember->cedula;
+            $complet=Collect(['$key'=>$ids,'$var'=>$full]);
+            $hola->push($complet);
+        }
+
+        
+
+        // return $nonmembers;
+        return view('admin.asignacion.create',compact('hola'));
     }
+
+
+
+
 
     /**
      * Store a newly created Asignacion in storage.
