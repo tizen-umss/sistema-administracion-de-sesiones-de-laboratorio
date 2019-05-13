@@ -19,11 +19,11 @@
                     <tr>
                         <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
                         
-                        <th>@lang('global.gruposLaboratorio.fields.nombreGrupoLab')</th>
+                        <th>@lang('global.gruposLaboratorio.fields.nombregrupolab')</th>
                         <th>@lang('global.gruposLaboratorio.fields.materia_id')</th>
                         <th>@lang('global.gruposLaboratorio.fields.laboratorio_id')</th>
-                        <th>@lang('global.gruposLaboratorio.fields.diaGrupo')</th>
-                        <th>@lang('global.gruposLaboratorio.fields.horaGrupo')</th>
+                        <th>@lang('global.gruposLaboratorio.fields.diagrupo')</th>
+                        <th>@lang('global.gruposLaboratorio.fields.horagrupo')</th>
                 
                         <th>&nbsp;</th>
                         
@@ -37,7 +37,7 @@
                             <tr data-entry-id="{{ $grupoLaboratorio->id }}">
                                 <td></td>
 
-                                <td>{{ $grupoLaboratorio->nombreGrupoLab }}</td>
+                                <td>{{ $grupoLaboratorio->nombregrupolab }}</td>
                                 {{-- <td>{{ $grupoLaboratorio->each(function($grupoLaboratorio){ $grupoLaboratorio->materias;}) }}</td> --}}
                                 <td>{{ $grupoLaboratorio->materia()->pluck('nombremateria')->first() }}</td>
                                 <td>{{ $grupoLaboratorio->laboratorio()->pluck('nombrelab')->first() }}</td>
@@ -46,8 +46,8 @@
                             {{-- <h1> {{{$dia['mi']}}}</h1> --}}
                                 @endforeach
 
-                                <td>{{ $grupoLaboratorio->diaGrupo  }}</td>
-                                <td>{{ $grupoLaboratorio->horaGrupo }}</td>
+                                <td>{{ $grupoLaboratorio->diagrupo  }}</td>
+                                <td>{{ $grupoLaboratorio->horagrupo }}</td>
                                 
                                 <td>
                                     <a href="{{ route('admin.gruposLaboratorio.edit',[$grupoLaboratorio->id]) }}" class="btn btn-xs btn-info">@lang('global.app_edit')</a>

@@ -25,8 +25,8 @@ class StoreGruposLaboratorioRequest extends FormRequest
     {
         return [
             'nombregrupolab' => 'required|max:20|unique:grupos_laboratorio',
-            'diaGrupo' => 'required',
-            'horaGrupo' => 'required',
+            'diagrupo' => 'required',
+            'horagrupo' => 'required',
         ];
     }
 }
