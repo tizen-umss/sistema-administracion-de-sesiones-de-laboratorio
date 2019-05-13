@@ -61,7 +61,7 @@ class GruposMateriaController extends Controller
         $roles = Role::all();
         $users = \App\User::with('roles')->get();
         $nonmembers = $users->reject(function ($user, $key) {
-            return !$user->hasRole('estudiante');
+            return !$user->hasRole('docente');
         });
 
 
