@@ -44,7 +44,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('grupoMateria_mass_destroy', ['uses' => 'Admin\GruposMateriaController@massDestroy', 'as' => 'gruposMateria.mass_destroy']);
 
     Route::resource('asignaciones', 'Admin\AsignacionesController');
+     Route::resource('asignaciones', 'Admin\AsignacionesController');
     Route::post('asignacion_mass_destroy', ['uses' => 'Admin\AsignacionesController@massDestroy', 'as' => 'asignaciones.mass_destroy']);
+
+    
 
 });
 
@@ -65,7 +68,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
 
     Route::resource('/horario', 'Admin\HoariosController');
-    Route::post('horarios_mass_destroy', ['uses' => 'Admin\HoariosController@massDestroy', 'as' => 'horarios.mass_destroy']);
+    Route::get('/horarios/{dato}', 'Admin\HoariosController@horarios');
+
 
     Route::resource('/actividades', 'Aux\ActividadController');
     Route::post('actividades_mass_destroy', ['uses' => 'Aux\ActividadController@massDestroy', 'as' => 'actividad.mass_destroy']);

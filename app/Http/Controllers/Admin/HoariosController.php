@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class HoariosController extends Controller
-{
+{   
+    private $id = 1;
     /**
      * Display a listing of the resource.
      *
@@ -19,80 +20,42 @@ class HoariosController extends Controller
     {
         $laboratorios = Laboratorio::all();
   
-        $gruposLabo=DB::table('grupos_laboratorio')
-        ->join('laboratorios', 'laboratorios.id', '=','grupos_laboratorio.laboratorio_id')
-        ->join('materias', 'materias.id', '=', 'grupos_laboratorio.materia_id')
-        ->select('*')->get();
-        // dd($gruposLabo);
-       
+        // $gruposLabo=DB::table('grupos_laboratorio')
+        // ->join('laboratorios', 'laboratorios.id', '=','grupos_laboratorio.laboratorio_id') // ->join('laboratorios', 'laboratorios.id', '=','grupos_laboratorio.laboratorio_id')
+        // ->join('materias', 'materias.id', '=', 'grupos_laboratorio.materia_id')
+        // ->select('*')->get();
+
+        // $gruposLabo=DB::select('select * from grupos_laboratorio, materias, laboratorios where  laboratorio_id = 1');
+        //$this->id = 5;
+
+        $gruposLabo=DB::select('select * 
+        from grupos_laboratorio, materias, laboratorios, grupos_materia 
+        where  
+        laboratorios.id = grupos_laboratorio.laboratorio_id and 
+        grupos_laboratorio.materia_id = materias.id and
+        grupos_materia.materia_id = materias.id and
+        laboratorio_id = '.$this->id);
 
       return view('admin.horario.horario', compact('gruposLabo', 'laboratorios'));
     
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function horarios($id){
+
+        $laboratorios = Laboratorio::all();
+
+        $gruposLabo=DB::select('select * 
+        from grupos_laboratorio, materias, laboratorios, grupos_materia 
+        where  
+        laboratorios.id = grupos_laboratorio.laboratorio_id and 
+        grupos_laboratorio.materia_id = materias.id and
+        grupos_materia.materia_id = materias.id and
+        laboratorio_id = '.$id);
+
+      return view('admin.horario.horario', compact('gruposLabo', 'laboratorios'));
+        
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }
