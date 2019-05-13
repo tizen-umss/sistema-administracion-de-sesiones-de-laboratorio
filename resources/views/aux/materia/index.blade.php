@@ -17,9 +17,9 @@
                 <thead>
                     <tr>
                         <th style="text-align:center;"><input type="checkbox" id="select-all"></th>                        
-                        <th>@lang('global.materias.fields.nombreMateria')</th>
-                        <th>@lang('global.materias.fields.codigoMateria')</th>
-                        <th>@lang('global.materias.fields.descripcionMateria')</th>
+                        <th>@lang('global.materias.fields.nombremateria')</th>
+                        <th>@lang('global.materias.fields.codigomateria')</th>
+                        <th>@lang('global.materias.fields.descripcionmateria')</th>
                         <th>&nbsp;</th> 
                     </tr>
                 </thead>
@@ -32,9 +32,9 @@
                                 <td></td>
                                 
                                 @if(App\GrupoMateria::all()->pluck('materia_id')->first() == $materia->id) 
-                                    <td>{{ $materia->nombreMateria }}</td>
-                                    <td>{{ $materia->codigoMateria }}</td>
-                                    <td>{{ $materia->descripcionMateria }}</td>
+                                    <td>{{ $materia->nombremateria }}</td>
+                                    <td>{{ $materia->codigomateria }}</td>
+                                    <td>{{ $materia->descripcionmateria }}</td>
                                     <td> <a href="{{ route('materias.edit',[$materia->id]) }}" class="btn btn-xs btn-info">Portafolio</a></td>
                                 @endif
                             </tr>
