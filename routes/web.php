@@ -16,7 +16,6 @@ $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.password.reset');
 
-
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/home', 'HomeController@index');
     Route::resource('permissions', 'Admin\PermissionsController');
@@ -29,6 +28,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     // Route::get('materias/home/materia', 'Admin\MateriasController@home');
     Route::resource('materias', 'Admin\MateriasController');
     Route::post('materias_mass_destroy', ['uses' => 'Admin\MateriasController@massDestroy', 'as' => 'materias.mass_destroy']);
+
+    //Registro masivo
+    // Route::get('admin/users/creaMasivo', 'Admin/RegistroMasivoController');
 
 
 
@@ -44,10 +46,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('grupoMateria_mass_destroy', ['uses' => 'Admin\GruposMateriaController@massDestroy', 'as' => 'gruposMateria.mass_destroy']);
 
     Route::resource('asignaciones', 'Admin\AsignacionesController');
-     Route::resource('asignaciones', 'Admin\AsignacionesController');
+    Route::resource('asignaciones', 'Admin\AsignacionesController');
     Route::post('asignacion_mass_destroy', ['uses' => 'Admin\AsignacionesController@massDestroy', 'as' => 'asignaciones.mass_destroy']);
-
-    
 
 });
 
@@ -66,7 +66,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('/materias', 'Aux\MateriasController');
     Route::post('materias_mass_destroy', ['uses' => 'Aux\MateriasController@massDestroy', 'as' => 'materias.mass_destroy']);
 
-
+    //Horarios
     Route::resource('/horario', 'Admin\HoariosController');
     Route::get('/horarios/{dato}', 'Admin\HoariosController@horarios');
 

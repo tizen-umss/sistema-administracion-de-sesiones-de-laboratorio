@@ -19,11 +19,8 @@
         </ul>
     </div>
 </div>
-
         <!-- bloque de php -->
-
         <?php
-
 
             $matrix = array();
 
@@ -75,31 +72,49 @@
 
                      $matrix[$indiceX][$indiceY] = $elemento->nombremateria . " Grupo Lab: " . $elemento->nombregrupolab ." Grupo Mat: $elemento->nombregrupomat";
             }
+            $id = 0;
         ?>
 
-    <p>
-        <table border="2" rules=all width='100%' class="table table-responsive  table-striped dt-select" >  <!-- Clases quitadas: table-bordered-->
-            <tr>
+<!-- otra tabla -->
 
-                @for ($i=0; $i< count($matrix); $i++ )
+<h3 class="page-title"> HORARIOS <?php echo $nombrelaboratorio; ?> </h3>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @lang('global.app_list')
+        </div>
+
+        <div class="panel-body table-responsive">
+            <table class="table table-bordered table-striped  dt-select">
+            <p>
+                <table border="2" rules=all width='100%' class="table table-responsive  table-striped dt-select" >  <!-- Clases quitadas: table-bordered-->
                     <tr>
-                    @for ($j=0; $j< count($matrix[$i]); $j++ )
+                        @for ($i=0; $i< count($matrix); $i++ )
+                            <tr>
+                            @for ($j=0; $j< count($matrix[$i]); $j++ )
 
-                        @if($i == 0)
+                                @if($i == 0)
 
-                            <th><center> {{ $matrix[$i][$j] }} </center></th> 
-                        
-                        @else
-                            @if( $j == 0)
-                            <th> <center>{{  $matrix[$i][$j] }} </center></th> 
-                            @else
-                            <td> <center>{{ $matrix[$i][$j] }} </center></td>
-                            @endif
-                        @endif
-                    @endfor
+                                    <th><center> {{ $matrix[$i][$j] }} </center></th> 
+                                
+                                @else
+                                    @if( $j == 0)
+                                    <th> <center>{{  $matrix[$i][$j] }} </center></th> 
+                                    @else
+                                    <td> <center>{{ $matrix[$i][$j] }} </center></td>
+                                    @endif
+                                @endif
+                            @endfor
+                            </tr>
+                        @endfor
                     </tr>
-                @endfor
-            </tr>
-        </table>
-    </p>
+                </table>
+            </p>        
+                
+        
+            </table>
+        </div>
+    </div>
+
+
 @endsection

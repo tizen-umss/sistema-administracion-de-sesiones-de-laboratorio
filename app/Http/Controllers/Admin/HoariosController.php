@@ -35,8 +35,11 @@ class HoariosController extends Controller
         grupos_laboratorio.materia_id = materias.id and
         grupos_materia.materia_id = materias.id and
         laboratorio_id = '.$this->id);
-
-      return view('admin.horario.horario', compact('gruposLabo', 'laboratorios'));
+        // dd($gruposLabo);
+        
+        $nombrelaboratorio = ' ';
+        
+      return view('admin.horario.horario', compact('gruposLabo', 'laboratorios', 'nombrelaboratorio'));
     
     }
 
@@ -52,10 +55,12 @@ class HoariosController extends Controller
         grupos_materia.materia_id = materias.id and
         laboratorio_id = '.$id);
 
-      return view('admin.horario.horario', compact('gruposLabo', 'laboratorios'));
-        
+        $nombrelabo=DB::select('select nombrelab from laboratorios where id = '.$id);
+        $nombrelaboratorio = $nombrelabo[0]->nombrelab;
+        // echo $nombrelaboratorio;
+
+      return view('admin.horario.horario', compact('gruposLabo', 'laboratorios', 'nombrelaboratorio')); 
 
     }
-
     
 }
