@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-
+use DB;
 use App\Tarea;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,7 +18,20 @@ class ListasController extends Controller
     {
         $tareas = tarea::all();
 
-        return view('admin.lista.index',  compact('tareas'));
+        
+
+        
+
+            $listas=DB::select(
+                'select users.id , users.name, users.apellidopaterno, users.apellidomaterno, users.cedula, users.codigosiss, grupos_materia.nombregrupomat, materias.nombremateria, tareas.calificacion
+                
+                from users, grupos_materia, materias, tareas
+                
+                where materias.id = grupos_materia.materia_id and grupos_materia.user_id = users.id and
+                users.id = tareas.user_id' );
+            
+                
+    return view('admin.lista.index',  compact('listas'));
     }
 
     /**
@@ -87,3 +100,9 @@ class ListasController extends Controller
         //
     }
 }
+
+// $listas=DB::select(
+//     'select u.id ,u.name, u.apellidopaterno, u.apellidomaterno, u.cedula, u.codigosiss ,gm.nombregrupomat,m.nombremateria, t.calificacion
+//     from users as u, grupos_materia as gm, materias as m, asignaciones as a,tareas as t
+//     where a.user_id=u.id and a.grupomateria_id=gm.id and gm.materia_id=m.id and t.user_id=u.id and gm.id='.$idgrupomateria .'and materias.id='.$idmateria );
+    

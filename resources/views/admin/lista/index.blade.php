@@ -11,17 +11,17 @@
         </div>
 
         <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped {{ count($tareas) > 0 ? 'datatable' : '' }} dt-select">
+            <table class="table table-bordered table-striped {{ count($listas) > 0 ? 'datatable' : '' }} dt-select">
                 <thead>
                 
                     <tr>
                         <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
-                        
                         <th>Nombre</th>
                         <th>Apellido Paterno</th>
                         <th>Apellido Materno</th>
                         <th>Cedula</th>
                         <th>CodSiss</th>
+                        <th>Nota</th>
                 
                         <th>&nbsp;</th>
                         
@@ -29,7 +29,27 @@
                 </thead>
               <tbody>
 
-                 
+                @if (count($listas) > 0) 
+                @foreach ($listas as $lista)
+                    <tr data-entry-id="{{ $lista->id }}">
+                        <td></td>
+
+                        <td>{{ $lista->name}}</td>
+                        <td>{{ $lista->apellidopaterno}}</td>
+                        <td>{{ $lista->apellidomaterno}}</td>
+                        <td>{{ $lista->cedula}}</td>
+                        <td>{{ $lista->codigosiss}}</td>
+                        <td>{{ $lista->calificacion}}</td>
+                        <td></td>
+
+                    </tr>
+                    
+                @endforeach
+                @else
+                    <tr>
+                        <td colspan="9">@lang('global.app_no_entries_in_table')</td>
+                    </tr>
+                @endif
 
               </tbody> 
                 

@@ -77,17 +77,14 @@
 
 <!-- otra tabla -->
 
-<h3 class="page-title"> HORARIOS <?php echo $nombrelaboratorio; ?> </h3>
+<h3 class="page-title"> HORARIOS DEL <?php echo strtoupper($nombrelaboratorio); ?> </h3>
     
     <div class="panel panel-default">
-        <div class="panel-heading">
-            @lang('global.app_list')
-        </div>
-
+        
         <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped  dt-select">
+            <table class="table table-bordered table-striped  dt-select w-auto">
             <p>
-                <table border="2" rules=all width='100%' class="table table-responsive  table-striped dt-select" >  <!-- Clases quitadas: table-bordered-->
+                <table border="2" rules=all width='100%' class="table table-responsive  table-striped dt-select w-auto" >  <!-- Clases quitadas: table-bordered-->
                     <tr>
                         @for ($i=0; $i< count($matrix); $i++ )
                             <tr>
@@ -99,9 +96,9 @@
                                 
                                 @else
                                     @if( $j == 0)
-                                    <th> <center>{{  $matrix[$i][$j] }} </center></th> 
+                                    <th><center>{{  $matrix[$i][$j] }} </center></th> 
                                     @else
-                                    <td> <center>{{ $matrix[$i][$j] }} </center></td>
+                                    <td><center>{{ $matrix[$i][$j] }} </center></td>
                                     @endif
                                 @endif
                             @endfor

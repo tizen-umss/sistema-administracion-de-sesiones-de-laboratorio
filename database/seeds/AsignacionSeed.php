@@ -14,7 +14,7 @@ class AsignacionSeed extends Seeder
     {
         $asignacion = Asignacion::create([
             'id'=>'0',
-            'user_id' => '1',
+            'user_id' => '8',
             'grupomateria_id'=>'0',
             'grupolaboratorio_id'=>'0',
         ]);
