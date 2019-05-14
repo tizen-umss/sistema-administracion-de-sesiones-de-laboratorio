@@ -2,20 +2,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>REGISTRO MASIVO DE USUARIOS</h1>
     
-    <form class = "form-group"method="POST" action="">
-        <div class="col-md-12" >
-            
-            <div class="form-group">
-                    <label for="validation01">Adjuntar Archivo</label>
-                    <input name="uploadedfile" type="file" />
-            </div>
-       
-        <a href="/d" class="btn btn-danger" >Cancelar</a>
-        <button class = "btn btn-danger" type="submit">Guardar</button>
-    </div>
+    <form class="form-group" action="cargar" method="POST" enctype = "multipart/form-data">
+        {{ csrf_field() }}
+        <input type="file" name="path">
+        <br>
+        <button type="submit">Subir</button>
     </form>
-
 
 @endsection

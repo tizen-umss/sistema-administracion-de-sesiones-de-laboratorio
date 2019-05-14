@@ -29,8 +29,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('materias', 'Admin\MateriasController');
     Route::post('materias_mass_destroy', ['uses' => 'Admin\MateriasController@massDestroy', 'as' => 'materias.mass_destroy']);
 
-    //Registro masivo
-    // Route::get('admin/users/creaMasivo', 'Admin/RegistroMasivoController');
+    
 
 
 
@@ -83,14 +82,18 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('/lista', 'Admin\ListasController');
     Route::post('listas_mass_destroy', ['uses' => 'Admin\ListasController@massDestroy', 'as' => 'listas.mass_destroy']);
 
-//     // Route::resource('laboratorios', 'Admin\LaboratoriosController');
-//     // Route::post('laboratorios_mass_destroy', ['uses' => 'Admin\LaboratoriosController@massDestroy', 'as' => 'laboratorios.mass_destroy']);
+    
 
-//     // Route::resource('gruposLaboratorio', 'Aux\GruposLaboratorioController');
-//     // Route::Materia', ['uses' => 'Aux\GruposLaboratorioController@massDestroy', 'as' => 'gruposLaboratorio.mass_destroy']);
 
-// });
+//    admin.posts.index
+//    admin.posts.indexatoriosController@massDestroy', 'as' => 'laboratorios.mass_destroy']);
+
+//    admin.posts.indexoller');
+//    admin.posts.indexsDestroy', 'as' => 'gruposLaboratorio.mass_destroy']);
+
+// });admin.posts.index
 //  Route::resource('/x', 'borrar');
+
 
 
 
@@ -108,3 +111,6 @@ Route::put('admin/posts/{post}','Admin\PostsController@update')->name('admin.pos
 Route::post('posts/{post}/photos','Admin\PhotosController@store')->name('admin.posts.photos.update');
 Route::delete('photos/{photo}','Admin\PhotosController@destroy')->name('admin.photos.destroy');
 
+//Registro masivo
+Route::resource('/import', 'Admin\RegistroMasivoController');
+Route::post('/cargar', 'Admin\RegistroMasivoController@guardar');

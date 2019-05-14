@@ -77,8 +77,8 @@
 
 <!-- otra tabla -->
 
-<h3 class="page-title"> HORARIOS DEL <?php echo strtoupper($nombrelaboratorio); ?> </h3>
-    
+
+<h3 class="page-title"> HORARIOS DEL <?php echo strtoupper($nombrelaboratorio); ?> </h3>    
     <div class="panel panel-default">
         
         <div class="panel-body table-responsive">

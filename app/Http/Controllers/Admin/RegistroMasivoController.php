@@ -2,8 +2,25 @@
 
 namespace App\Http\Controllers\Admin;
 
+
+use DB;
+use Illuminate\Database\Seeder;
+use App\User;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
+
+
+namespace App\Http\Controllers\Admin;
+
+use App\User;
+use Spatie\Permission\Models\Role;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\StoreUsersRequest;
+use App\Http\Requests\Admin\UpdateUsersRequest;
 
 class RegistroMasivoController extends Controller
 {
@@ -13,73 +30,84 @@ class RegistroMasivoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('Admin.users.registroMasivo');
+    {   
+        return view('admin.users.registroMasivo');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function guardar(){
+
+        $path = public_path('Ejemplo.csv'); // Le pasamos el archivo
+        // echo $path;
+        $arregloLineas = file($path);
+        $codificado = array_map('utf8_encode', $arregloLineas);
+        //  dd(array_map('str_getcsv',$codificado));
+        $array = array_map('str_getcsv',$codificado);
+        $arregloPalabras = array();
+        $indicePalabras = 0;
+        $palabra='';
+        
+        // if(strcmp((string) $array[0][0][7], (string)';')==0){
+        //     echo "Es igual";
+        // }else{
+        //     echo "No igual";
+        // }
+
+        // echo "El tamanio es: ".strlen($array[2][0])."            ";
+
+        for($cadena = 0; $cadena < count($array); $cadena++){//Recorre las listas
+            for ($letra=0; $letra < strlen($array[$cadena][0]); $letra++) {//Recorre las letras 
+                if((string)strcmp($array[$cadena][0][$letra], (string) ';')==0){
+                    // echo " / ".$array[$cadena][0][$letra] . "Es igual   /";
+                    // echo $palabra
+                    $arregloPalabras[$cadena][$indicePalabras] = (string) $palabra;
+                    $palabra = '';
+                    $indicePalabras++;
+
+                }else{
+                    // echo "  / " . $array[$cadena][0][$letra] . "No es igual   /";
+                    $palabra = (string) $palabra . (string) $array[$cadena][0][$letra];
+                }
+            }
+            $arregloPalabras[$cadena][7]=$palabra;
+            $palabra = '';
+            $indicePalabras = 0;
+        }
+
+        // echo "Contrasenia: " . $arregloPalabras[4][6];
+        //Agregar a la baase de datos
+// echo "El rol es: " . $arregloPalabras[4][7];
+
+        for ($i=1; $i < count($arregloPalabras); $i++) { 
+            $user = User::create([
+                'name'=>(string)$arregloPalabras[$i][0],
+                'apellidopaterno'=>(string)$arregloPalabras[$i][1],
+                'apellidomaterno'=>(string)$arregloPalabras[$i][2],
+                'cedula'=>(string)$arregloPalabras[$i][3],
+                'codigosiss'=>(string)$arregloPalabras[$i][4],
+                'email'=>(string)$arregloPalabras[$i][5],
+                'password'=>(string)bcrypt($arregloPalabras[$i][6]) 
+                ]);
+            $user->assignRole($arregloPalabras[$i][7]);
+        
+        }
+
+        //Redireccionamiento
+    if (! Gate::allows('users_manage')) {
+        return abort(401);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    //Redireccionamiento
+    $users = User::all();
+    error_log ('holamundo');
+    error_log('App.timezone');
+
+    return view('admin.users.index', compact('users'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function e(Request $request){
+
+        $path = $request->file('path')->store('archivos');// $path = public_path('Ejemplo.csv'); // Le pasamos el archivo
+        echo $path;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
