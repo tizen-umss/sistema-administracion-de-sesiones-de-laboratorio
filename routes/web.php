@@ -74,6 +74,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('/actividades', 'Aux\ActividadController');
     Route::post('actividades_mass_destroy', ['uses' => 'Aux\ActividadController@massDestroy', 'as' => 'actividad.mass_destroy']);
 
+    // rutas de las listas de calificaciones 
+    Route::resource('/lista', 'Admin\ListasController');
+    Route::post('listas_mass_destroy', ['uses' => 'Admin\ListasController@massDestroy', 'as' => 'listas.mass_destroy']);
 
 //     // Route::resource('laboratorios', 'Admin\LaboratoriosController');
 //     // Route::post('laboratorios_mass_destroy', ['uses' => 'Admin\LaboratoriosController@massDestroy', 'as' => 'laboratorios.mass_destroy']);
