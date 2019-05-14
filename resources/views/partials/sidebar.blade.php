@@ -137,6 +137,15 @@
                 </a>
             </li>
             @endrole
+
+            @role('docente')
+            <li>
+                <a href="/lista">
+                    <i class="fa fa-book"></i>
+                    <span class="title">listas</span>
+                </a>
+            </li>
+            @endrole
             
             @role('auxiliar')
             <li class="{{ $request->segment(1) == 'materias' ? 'active' : '' }}">

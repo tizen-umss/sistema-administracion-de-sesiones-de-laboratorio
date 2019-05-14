@@ -51,22 +51,16 @@
                     // }    
                 }
             }
-<<<<<<< HEAD
 
             // if (strcasecmp(($gruposLabo[0]->diagrupo), $matrix[0][1]) == 0) {
             //     echo " Son iguales";
             // }else echo "No son iguales";
 
             $lola=0;
-=======
-            // echo count($gruposLabo);
-            $indice = 0;
->>>>>>> b7a67e6d53a5aaa1df77be293d643044bf118359
             foreach ($gruposLabo as $elemento) {
                 $indiceX = 1;
                 $indiceY = 1;
 
-<<<<<<< HEAD
                     while(strcasecmp(($gruposLabo[$lola]->diagrupo), $matrix[0][$indiceY]) <> 0){
                         $indiceY += 1;
                     }  
@@ -81,19 +75,6 @@
                     $lola ++;
                 }
             
-=======
-                    while(strcasecmp(($gruposLabo[$indice]->diagrupo), $matrix[0][$indiceY]) <> 0){
-                        $indiceY = $indiceY + 1;
-                    }  
-                    // echo $matrix[$indiceX][0];
-                    while(strcasecmp(($gruposLabo[$indice]->horagrupo), $matrix[$indiceX][0]) <> 0){
-                        $indiceX = $indiceX + 1;
-                    }
-                    $matrix[$indiceX][$indiceY] = $elemento->nombremateria . " Grupo Lab: " . $elemento->nombregrupolab ." Grupo Mat: $elemento->nombregrupomat";
-                    $indice ++;
-            }
-            $id = 0;
->>>>>>> b7a67e6d53a5aaa1df77be293d643044bf118359
         ?>
 
 <!-- otra tabla -->
