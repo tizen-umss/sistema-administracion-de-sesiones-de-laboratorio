@@ -5,7 +5,7 @@
     <h3 class="page-title">@lang('global.users.title')</h3>
     <p>
         <a href="{{ route('admin.users.create') }}" class="btn btn-success">@lang('global.app_add_new')</a>
-        <a href="" class="btn btn-success">Registro masivo</a>
+        <a href="/import" class="btn btn-success">Registro masivo</a>
     </p>
 
     <div class="panel panel-default">

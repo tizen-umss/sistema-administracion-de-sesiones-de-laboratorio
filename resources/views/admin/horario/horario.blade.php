@@ -77,6 +77,7 @@
 
 <!-- otra tabla -->
 
+
 <h3 class="page-title"> HORARIOS <?php echo $nombrelaboratorio; ?> </h3>
     
     <div class="panel panel-default">
