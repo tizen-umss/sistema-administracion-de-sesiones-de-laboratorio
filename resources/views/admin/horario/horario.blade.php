@@ -51,26 +51,21 @@
                     // }    
                 }
             }
-
-            // if (strcasecmp(($gruposLabo[0]->diagrupo), $matrix[0][1]) == 0) {
-            //     echo " Son iguales";
-            // }else echo "No son iguales";
-
+            // echo count($gruposLabo);
+            $indice = 0;
             foreach ($gruposLabo as $elemento) {
                 $indiceX = 1;
                 $indiceY = 1;
-                // echo "Estoy en " . $elemento;
-                // echo($elemento->diagrupo);
 
-                    while(strcasecmp(($gruposLabo[0]->diagrupo), $matrix[0][$indiceY]) <> 0){
-                        $indiceY += 1;
+                    while(strcasecmp(($gruposLabo[$indice]->diagrupo), $matrix[0][$indiceY]) <> 0){
+                        $indiceY = $indiceY + 1;
                     }  
                     // echo $matrix[$indiceX][0];
-                    while(strcasecmp(($gruposLabo[0]->horagrupo), $matrix[$indiceX][0]) <> 0){
-                        $indiceX += 1;
+                    while(strcasecmp(($gruposLabo[$indice]->horagrupo), $matrix[$indiceX][0]) <> 0){
+                        $indiceX = $indiceX + 1;
                     }
-
-                     $matrix[$indiceX][$indiceY] = $elemento->nombremateria . " Grupo Lab: " . $elemento->nombregrupolab ." Grupo Mat: $elemento->nombregrupomat";
+                    $matrix[$indiceX][$indiceY] = $elemento->nombremateria . " Grupo Lab: " . $elemento->nombregrupolab ." Grupo Mat: $elemento->nombregrupomat";
+                    $indice ++;
             }
             $id = 0;
         ?>
