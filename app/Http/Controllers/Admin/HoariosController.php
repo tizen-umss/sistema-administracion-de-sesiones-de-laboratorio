@@ -57,7 +57,7 @@ class HoariosController extends Controller
 
         $nombrelabo=DB::select('select nombrelab from laboratorios where id = '.$id);
         $nombrelaboratorio = $nombrelabo[0]->nombrelab;
-        // echo $nombrelaboratorio;
+        // dd($gruposLabo);
 
       return view('admin.horario.horario', compact('gruposLabo', 'laboratorios', 'nombrelaboratorio')); 
 
