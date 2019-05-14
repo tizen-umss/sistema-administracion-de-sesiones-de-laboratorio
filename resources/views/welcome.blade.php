@@ -1,95 +1,75 @@
-<!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+{{-- comienza contenido del blog content--}}
+@section('content')
+    <link rel="stylesheet" href="/otro/css/normalize.css">
+	<link rel="stylesheet" href="/otro/css/framework.css">
+	<link rel="stylesheet" href="/otro/css/style.css">
+	<link rel="stylesheet" href="/otro/css/responsive.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+	@stack('scripts')
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+	<a style="float:right" href="{{ route('admin.posts.index') }}" class="btn btn-lg btn-success">Administrar Tareas</a>
+	
+	<section class="posts container">
+        @foreach($posts as $post)
+		<article class="post">
+			@if($post->photos->count()===1)
+				<figure><img src="{{$post->photos->first()->url}}" alt="" class="img-responsive" alt=""></figure>
+			@elseif($post->photos->count()>1)
+			<div class="gallery-photos" data-masonry='{"itemSelector":".grid-item","columnWidth":464}'>
+					@foreach($post->photos->take(4) as $photo)
+					<figure class="grid-item grid-item--height2">
+						@if($loop->iteration === 4)
+							<div class="overlay">{{$post->photos->count()}} Fotos</div>
+						@endif
+						<img src="{{url($photo->url)}}" class="img-responsive" alt=""></figure>
+					@endforeach
+				</div>
+			@endif
+				
+			<div class="content-post">
+				<header class="container-flex space-between">
+					<div class="date">
+					{{-- <span class="c-gray-1">{{$post->published_at->format('M d') }}</span> --}}
+					<span class="c-gray-1">{{$post->published_at}}</span>
+					</div>
+					<div class="post-category">
+                    <span class="category text-capitalize">{{$post->category->name}}</span>
+					</div>
+				</header>
+				<h1>{{$post->title}}</h1>
+				<div class="divider"></div>
+                <p>{{$post->excerpt}}</p>
+				<footer class="container-flex space-between">
+					<div class="read-more">
+					<a href="blog/{{$post->id}}" class="text-uppercase c-green">Leer Mas</a>
+					</div>
+					<div class="tags container-flex">
+					@foreach($post->tags as $tag)
+					<span class="tag c-gray-1 text-capitalize">{{$tag->name}}</span>
+					@endforeach
+					</div>
+				</footer>
+			</div>
+        </article>
+        @endforeach
 
-            .full-height {
-                height: 100vh;
-            }
+		<div class="pagination">
+				<ul class="list-unstyled container-flex space-center">
+					<li><a href="#" class="pagination-active">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
+			</div>
+	</section><!-- fin del div.posts.container -->
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+	
+@stop
 
-            .position-ref {
-                position: relative;
-            }
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
 
-            .content {
-                text-align: center;
-            }
 
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+{{-- fin contendiog blog content --}}

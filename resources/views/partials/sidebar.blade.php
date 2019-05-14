@@ -121,20 +121,26 @@
                     
                     </ul>
                 </li>
-
-
-            
-
             @endcan
 
-            @role('auxiliar|docente')
+            @role('docente')
             <li class="{{ $request->segment(1) == 'materias' ? 'active' : '' }}">
-                <a href="{{ route('materias.index') }}">
+                <a href="{{ route('docmaterias.index') }}">
                     <i class="fa fa-book"></i>
-                    <span class="title">Materias</span>
+                    <span class="title">Materias Docente</span>
                 </a>
             </li>
             @endrole
+            
+            @role('auxiliar')
+            <li class="{{ $request->segment(1) == 'materias' ? 'active' : '' }}">
+                <a href="{{ route('auxmaterias.index') }}">
+                    <i class="fa fa-book"></i>
+                    <span class="title">Materias Auxiliar</span>
+                </a>
+            </li>
+            @endrole
+            
             
             <li class="{{ $request->segment(1) == 'change_password' ? 'active' : '' }}">
                 <a href="{{ route('auth.change_password') }}">

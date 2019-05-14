@@ -63,8 +63,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 //     // Route::resource('users', 'Admin\UsersController');
 //     // Route::post('users_mass_destroy', ['uses' => 'Admin\UsersController@massDestroy', 'as' => 'users.mass_destroy']);
 
-    Route::resource('/materias', 'Aux\MateriasController');
+    Route::resource('docmaterias', 'Doc\MateriasController');
+    Route::post('materias_mass_destroy', ['uses' => 'Doc\MateriasController@massDestroy', 'as' => 'materias.mass_destroy']);
+
+
+    Route::resource('auxmaterias', 'Aux\MateriasController');
     Route::post('materias_mass_destroy', ['uses' => 'Aux\MateriasController@massDestroy', 'as' => 'materias.mass_destroy']);
+
 
     //Horarios
     Route::resource('/horario', 'Admin\HoariosController');
@@ -86,3 +91,20 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
 // });
 //  Route::resource('/x', 'borrar');
+
+
+
+Route::get('/tareas', 'PagesController@home')->name('tareas.home');
+Route::get('blog/{id}','PostsController@show')->name('posts.show');
+// Route::get('/tareas', function(){return "holamunod";});
+
+
+// Route::get('/', 'AdminController@index')->name('dashboard');
+Route::get('admin/posts','Admin\PostsController@index')->name('admin.posts.index');
+Route::get('admin/posts/create','Admin\PostsController@create')->name('admin.posts.create');
+Route::post('admin/posts','Admin\PostsController@store')->name('admin.posts.store');
+Route::get('admin/posts/{post}','Admin\PostsController@edit')->name('admin.posts.edit');
+Route::put('admin/posts/{post}','Admin\PostsController@update')->name('admin.posts.update');
+Route::post('posts/{post}/photos','Admin\PhotosController@store')->name('admin.posts.photos.update');
+Route::delete('photos/{photo}','Admin\PhotosController@destroy')->name('admin.photos.destroy');
+
