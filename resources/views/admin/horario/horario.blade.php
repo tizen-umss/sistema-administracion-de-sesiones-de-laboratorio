@@ -57,21 +57,22 @@
                 $indiceX = 1;
                 $indiceY = 1;
 
-                    while(strcasecmp(($gruposLabo[$indice]->diagrupo), $matrix[0][$indiceY]) <> 0){
-                        $indiceY = $indiceY + 1;
+                    while(strcasecmp(($gruposLabo[$indice]->diagrupo), $matrix[0][$indiceY]) <> 0){//Encuentra coordenada x de dia
+                            $indiceY = $indiceY + 1;
                     }  
                     // echo $matrix[$indiceX][0];
-                    while(strcasecmp(($gruposLabo[$indice]->horagrupo), $matrix[$indiceX][0]) <> 0){
+                    while(strcasecmp(($gruposLabo[$indice]->horagrupo), $matrix[$indiceX][0]) <> 0){ // encuentra coordenada y de hora
+                
                         $indiceX = $indiceX + 1;
                     }
-                    $matrix[$indiceX][$indiceY] = $elemento->nombremateria . " Grupo Lab: " . $elemento->nombregrupolab ." Grupo Mat: $elemento->nombregrupomat";
+                    // $matrix[$indiceX][$indiceY] = $elemento->nombremateria . " Grupo Lab: " . $elemento->nombregrupolab ." Grupo Mat: $elemento->nombregrupomat";
+                    $matrix[$indiceX][$indiceY] = $elemento->nombremateria ." $elemento->nombregrupomat";
                     $indice ++;
             }
-            $id = 0;
+            // $id = 0;
         ?>
 
 <!-- otra tabla -->
-
 
 <h3 class="page-title"> HORARIOS DEL <?php echo strtoupper($nombrelaboratorio); ?> </h3>    
     <div class="panel panel-default">

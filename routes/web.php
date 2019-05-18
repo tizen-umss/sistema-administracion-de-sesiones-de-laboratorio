@@ -114,3 +114,4 @@ Route::delete('photos/{photo}','Admin\PhotosController@destroy')->name('admin.ph
 //Registro masivo
 Route::resource('/import', 'Admin\RegistroMasivoController');
 Route::post('/cargar', 'Admin\RegistroMasivoController@guardar');
+// Route::post('/cargar', 'Admin\RegistroMasivoController@guardar');

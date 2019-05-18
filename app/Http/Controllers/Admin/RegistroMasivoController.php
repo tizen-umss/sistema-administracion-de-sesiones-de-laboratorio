@@ -7,7 +7,7 @@ use DB;
 use Illuminate\Database\Seeder;
 use App\User;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
@@ -34,25 +34,24 @@ class RegistroMasivoController extends Controller
         return view('admin.users.registroMasivo');
     }
 
-    public function guardar(){
+    public function guardar(Request $request){
 
-        $path = public_path('Ejemplo.csv'); // Le pasamos el archivo
+        // dd($archivo);
+
+        // echo $archivo->file('path')->store('csv');
+        $path = $request->file('path')->store("/");// $path = public_path('Ejemplo.csv'); // Le pasamos el archivo
+        // echo "csv/".$path;
+        rename ("csv/".$path,"csv/datos.csv");
+
+        $path = public_path('csv/datos.csv'); // $path = public_path('Ejemplo.csv'); // Le pasamos el archivo
         // echo $path;
         $arregloLineas = file($path);
         $codificado = array_map('utf8_encode', $arregloLineas);
-        //  dd(array_map('str_getcsv',$codificado));
-        $array = array_map('str_getcsv',$codificado);
+        $array = array_map('str_getcsv',$codificado);//
         $arregloPalabras = array();
         $indicePalabras = 0;
         $palabra='';
         
-        // if(strcmp((string) $array[0][0][7], (string)';')==0){
-        //     echo "Es igual";
-        // }else{
-        //     echo "No igual";
-        // }
-
-        // echo "El tamanio es: ".strlen($array[2][0])."            ";
 
         for($cadena = 0; $cadena < count($array); $cadena++){//Recorre las listas
             for ($letra=0; $letra < strlen($array[$cadena][0]); $letra++) {//Recorre las letras 
@@ -106,8 +105,9 @@ class RegistroMasivoController extends Controller
 
     public function e(Request $request){
 
-        $path = $request->file('path')->store('archivos');// $path = public_path('Ejemplo.csv'); // Le pasamos el archivo
-        echo $path;
+        $path = $request->file('path')->store("/");// $path = public_path('Ejemplo.csv'); // Le pasamos el archivo
+        // echo "csv/".$path;
+        rename ("csv/".$path,"csv/datos.csv");
     }
 
 }
