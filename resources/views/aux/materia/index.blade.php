@@ -13,7 +13,7 @@
         </div>
   
         <div class="panel-body table-responsive">
-            <table class="table  table-striped {{ count($materias) > 0 ? '' : '' }} dt-select">
+            <table class="table  table-striped {{ count($materias)  > 0 ? '' : '' }} dt-select">
                 <thead>
                     <tr>
                         <th style="text-align:center;"><input type="checkbox" id="select-all"></th>                        

@@ -122,12 +122,27 @@
                     </ul>
                 </li>
             @endcan
-
+            <li>
+                <a href="/horario">
+                    <i class="fa fa-book"></i>
+                    <span class="title">Horarios</span>
+                </a>
+            </li>
+         
             @role('docente')
             <li class="{{ $request->segment(1) == 'materias' ? 'active' : '' }}">
                 <a href="{{ route('docmaterias.index') }}">
                     <i class="fa fa-book"></i>
                     <span class="title">Materias Docente</span>
+                </a>
+            </li>
+            @endrole
+
+            @role('docente')
+            <li>
+                <a href="/lista">
+                    <i class="fa fa-book"></i>
+                    <span class="title">listas</span>
                 </a>
             </li>
             @endrole
