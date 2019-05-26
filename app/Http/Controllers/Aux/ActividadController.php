@@ -6,22 +6,59 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 
+use Illuminate\Database\Seeder;
+use App\Actividad;
+use App\Post;
+use Carbon\Carbon;
+use App\Category;
+use App\Tag;
+
 class ActividadController extends Controller
-{
+{    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $estudiantes=DB::table('actividads')
-              ->join('tareas','tareas_id','=','tareas.id')
-              ->join('users','user_id','=','users.id')->get();
+    public function index($materia_id, $estudiante_id)
+    {   
+        
+        // $estudiante_id = 31;
+        // $materia_id = 11;
 
+        $estudiantes=DB::select('
+        SELECT users.id, actividads.id As actividad_id, actividads.fecha, users.cedula, users.name, users.apellidopaterno, users.apellidomaterno, 
+        publicacions.nombre, actividads.observaciones, actividads.descripcion
+        
+        FROM actividads, users, publicacions, materias, grupos_materia, portafolios, tareas, asignaciones
 
-         
-        return view('aux.actividades.index',compact('estudiantes'));
+        WHERE materias.id = '.$materia_id.
+        ' and materias.id = grupos_materia.materia_id
+          and grupos_materia.id = publicacions.grupos_materia_id
+          and grupos_materia.id = asignaciones.grupomateria_id
+          and users.id = ' .$estudiante_id.
+        ' and asignaciones.user_id = users.id
+          and users.id = portafolios.user_id 
+          and portafolios.id = tareas.portafolio_id
+          and tareas.id = actividads.tareas_id;
+        ');
+        
+        $tareas=DB::select('
+        select tareas.id, tareas.titulotarea 
+        from  materias, grupos_materia, asignaciones, users, portafolios, tareas
+        where users.id = ' . $estudiante_id .
+        ' and  materias.id = ' . $materia_id.'
+          and materias.id = grupos_materia.materia_id
+          and grupos_materia.id = asignaciones.grupomateria_id
+          and asignaciones.user_id = users.id
+          and users.id = portafolios.user_id
+          and portafolios.id = tareas.portafolio_id
+          and tareas.id NOT IN (SELECT actividads.tareas_id FROM actividads)
+        ');
+        //Si no tiene registros nunca mandara el nombre por eso esa linea
+        $nombre=DB::select('select users.name, users.apellidopaterno, users.apellidomaterno from users where users.id = '.$estudiante_id);
+        // dd($nombre);
+        return view('aux.actividades.index',compact('estudiantes', 'tareas', 'nombre'));
     }
 
     /**
@@ -31,7 +68,7 @@ class ActividadController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -41,8 +78,31 @@ class ActividadController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+     {   
+        // dd($request->request);
+        // echo $request->tarea_id;
+        if($request->tarea_id <> '-1'){
+            $observaciones = "*";
+            foreach($_POST as $nombre_campo => $valor){ //$nombre_campo es el nombre del identificador
+                // echo $nombre_campo . ' -> '.$valor .' ------ ';
+                if($nombre_campo === 'copio' or $nombre_campo === 'recibio' or $nombre_campo === 'perjudico' or $nombre_campo === 'abandono' or $nombre_campo === 'saco'){
+                    if($observaciones <> "*"){
+                        $observaciones = $observaciones . '  *' . $valor;
+                    }else{
+                        $observaciones = $observaciones . '' . $valor;
+                    }
+                }
+            }
+            $post = new Actividad;
+            $post->observaciones = $observaciones;
+            $post->descripcion = $request->descripcion;
+            $post->fecha = Carbon::now();
+            $post->tareas_id = $request->tarea_id;
+            $post->save();
+            // dd($request);
+        }
+        return back();
+
     }
 
     /**
@@ -65,9 +125,11 @@ class ActividadController extends Controller
     public function edit($id)
     {
         // $materia = Materia::findOrFail($id);
-
-        return view('aux.actividades.index');
+        // echo $id;
+        // return view('aux.actividades.index');
     }
+
+
 
     /**
      * Update the specified resource in storage.
@@ -89,6 +151,6 @@ class ActividadController extends Controller
      */
     public function destroy($id)
     {
-        //
+        echo "se eliminara el archivo ".$id;
     }
 }

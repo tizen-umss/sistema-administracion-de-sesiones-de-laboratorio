@@ -7,14 +7,13 @@
   
     <div class="btn-group" role="group">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
+            aria-haspopup="true" aria-expanded="false">
             Seleccione una opción
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
             @foreach($laboratorios as $laboratorio)
             <li><a href=" {{ url('/horarios/' . $laboratorio->id) }}">{{ $laboratorio->nombrelab }}</a></li>
-            
             @endforeach
         </ul>
     </div>
@@ -47,7 +46,7 @@
             for ($i=1; $i < 11; $i++) { // Ingresa los guines para que se marquen las lineas de la tabla
                 for ($j=1; $j < 7; $j++) { 
                     // if  ($matrix[$i][$j] == ""){
-                        $matrix[$i][$j] = "  ";
+                        $matrix[$i][$j] = "    ";
                     // }    
                 }
             }
@@ -56,18 +55,16 @@
             //     echo " Son iguales";
             // }else echo "No son iguales";
 
-            $lola=0;
+            $indice=0;
             foreach ($gruposLabo as $elemento) {
                 $indiceX = 1;
                 $indiceY = 1;
-
 
                     while(strcasecmp(($gruposLabo[$indice]->diagrupo), $matrix[0][$indiceY]) <> 0){//Encuentra coordenada x de dia
                             $indiceY = $indiceY + 1;
                     }  
                     // echo $matrix[$indiceX][0];
                     while(strcasecmp(($gruposLabo[$indice]->horagrupo), $matrix[$indiceX][0]) <> 0){ // encuentra coordenada y de hora
-                
                         $indiceX = $indiceX + 1;
                     }
                     // $matrix[$indiceX][$indiceY] = $elemento->nombremateria . " Grupo Lab: " . $elemento->nombregrupolab ." Grupo Mat: $elemento->nombregrupomat";

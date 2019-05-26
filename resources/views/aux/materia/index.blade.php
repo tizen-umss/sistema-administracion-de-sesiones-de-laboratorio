@@ -16,10 +16,13 @@
             <table class="table  table-striped {{ count($materias)  > 0 ? '' : '' }} dt-select">
                 <thead>
                     <tr>
-                        <th style="text-align:center;"><input type="checkbox" id="select-all"></th>                        
+                        <!-- <th style="text-align:center;"><input type="checkbox" id="select-all"></th>                         -->
+                        <!-- <th>ID</th> -->
                         <th>@lang('global.materias.fields.nombremateria')</th>
                         <th>@lang('global.materias.fields.codigomateria')</th>
                         <th>@lang('global.materias.fields.descripcionmateria')</th>
+                        <!-- <th>Grupo</th> -->
+                        <th>Portafolio</th>
                         <th>&nbsp;</th> 
                     </tr>
                 </thead>
@@ -29,13 +32,15 @@
                     @if (count($materias) > 0)
                         @foreach ($materias as $materia)
                             <tr data-entry-id="{{ $materia->id }}">
-                                <td></td>
+                                <!-- <td></td> -->
                                 
                                 @if(App\GrupoMateria::all()->pluck('materia_id')->first() == $materia->id) 
+                                    <!-- <td>{{ $materia->idMateria}}</td> -->
                                     <td>{{ $materia->nombremateria }}</td>
                                     <td>{{ $materia->codigomateria }}</td>
                                     <td>{{ $materia->descripcionmateria }}</td>
-                                    <td> <a href="{{ route('materias.edit',[$materia->id]) }}" class="btn btn-xs btn-info">Portafolio</a></td>
+                                    <!-- <td>{{ $materia->grupoMateria }}</td> -->
+                                    <td> <a href="{{ route('auxmaterias.edit',[$materia->id]) }}" class="btn btn-xs btn-info">Portafolio</a></td>
                                 @endif
                             </tr>
                         @endforeach

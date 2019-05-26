@@ -7,7 +7,7 @@
         {{ csrf_field() }}
         <input type="file" name="path">
         <br>
-        <button type="submit">Subir</button>
+        <button type="submit">Registrar todos los elementos</button>
     </form>
 
 @endsection

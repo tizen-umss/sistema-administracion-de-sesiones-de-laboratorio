@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+   
     <h3 class="page-title">{{$materia->nombremateria}}</h3>
     
     {{-- {!! Form::model($materia, ['method' => 'PUT', 'route' => ['admin.materias.update', $materia->id]]) !!} --}}
@@ -37,25 +38,26 @@
         <div class="panel-body table-responsive">
             <table class="table table-bordered table-striped {{ count(App\User::all()) > 0 ? 'datatable' : '' }} dt-select">
                 <thead>
-                
                     <tr>
+                    <!-- ojo revisar plantil -->
                         <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
                         
-                        <th>@lang('global.users.fields.name')</th>
-                        <th>@lang('global.users.fields.apellidopaterno')</th>
-                        <th>@lang('global.users.fields.apellidomaterno')</th>
-                        <th>@lang('global.users.fields.cedula')</th>
-                        <th>@lang('global.users.fields.codigosiss')</th>
+                        <th>Nombre</th>
+                        <th>Apellido Paterno</th>
+                        <th>Apellido Materno</th>
+                        <th>Cedula de Identidad</th>
+                        <th>Codigo SIS</th>
                         <th>&nbsp;</th>
                         
                     </tr>
                 </thead>
                 
                 <tbody>
+
                 
-                    @if (count(App\User::all()) > 0)
-                        @foreach (App\User::all() as $user)
-                            {{-- @if($user->roles()->pluck('name')->first() == 'docente') --}}
+                    @if (count($estudiantes) > 0)
+                        @foreach ($estudiantes as $user)
+                            
                             <tr data-entry-id="{{ $user->id }}">
                                 <td></td>
 
@@ -77,12 +79,15 @@
                                           ->first()
                                 }}
                                 <td>
-                                    <a href="{{ route('actividades.edit',[$num]) }}" class="btn btn-xs btn-info">Actividad</a>
-                                    {{-- <a href="{{ route('portafolio.edit',[$portafolio->id]) }}" class="btn btn-xs btn-primary">Portafolio</a> --}}
+                                    <!-- <h1>Hola esto es: {{$materia->id}}</h1> -->
+                                    <!-- <h2>Esto es el id del estudiate {{ $user->id }}</h2> -->
+                                    <!-- <a href="\actividades\31\11" class="btn btn-xs btn-info">Actividad</a>   $materia -->
+                                    <a href="{{url('/actividades/' . $materia->id).'/'.$user->id }}" class="btn btn-xs btn-info">Actividad</a>
+                                    {{-- <a href="{{ route('portafolio.index',[$portafolio->id]) }}" class="btn btn-xs btn-primary">Portafolio</a> --}}
                                 </td>
 
                             </tr>
-                            {{-- @endif --}}
+                            
                         @endforeach
                     @else
                         <tr>
@@ -95,4 +100,5 @@
     </div>
 
 @stop
+
 

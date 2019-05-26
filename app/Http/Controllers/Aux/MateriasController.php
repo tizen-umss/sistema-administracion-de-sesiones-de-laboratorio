@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Aux;
-
+namespace App\Http\Controllers\Aux; // Descomentar
+// namespace App;
+// use App\Materia;
+use DB;
 use App\Materia;
 use App\Actividad;
+
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,6 +14,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\Admin\StoreMateriasRequest;
 use App\Http\Requests\Admin\UpdateMateriasRequest;
+
+
+//librerias
+
+
+// use App\Materia;
+
+
+// use Illuminate\Http\Request;
+// use App\Http\Controllers\Controller;
 
 class MateriasController extends Controller
 {
@@ -69,13 +82,24 @@ class MateriasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        //Id de la materia
         // if (! Gate::allows('users_manage')) {
         //     return abort(401);
         // }
+        // dd($id);
+
         $materia = Materia::findOrFail($id);
 
-        return view('aux.materia.edit', compact('materia'));
+        $estudiantes=DB::select('SELECT users.id, users.name, users.apellidoPaterno, users.apellidomaterno, users.cedula, users.codigosiss 
+        FROM materias, grupos_materia, asignaciones, users
+        WHERE
+            materias.id = grupos_materia.materia_id and
+            grupos_materia.id = asignaciones.grupomateria_id and
+            asignaciones.user_id = users.id and
+            materias.id = '.$id);
+        
+        return view('aux.materia.edit', compact('materia', 'estudiantes'));
     }
 
     /**

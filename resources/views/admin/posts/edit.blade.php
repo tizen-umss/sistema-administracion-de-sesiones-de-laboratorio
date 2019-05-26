@@ -34,9 +34,6 @@
                                         {!!$errors->first('body','<span class="help-block">:message</span>')!!}
                                 </div>
 
-                                
-                
-                
                             </div>
                                 
                     </div>

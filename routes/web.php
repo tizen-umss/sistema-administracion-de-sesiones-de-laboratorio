@@ -29,9 +29,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('materias', 'Admin\MateriasController');
     Route::post('materias_mass_destroy', ['uses' => 'Admin\MateriasController@massDestroy', 'as' => 'materias.mass_destroy']);
 
-    
-
-
 
     // route::Resource('materia', 'Admin\controladorMateria');
 
@@ -65,26 +62,31 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('docmaterias', 'Doc\MateriasController');
     Route::post('materias_mass_destroy', ['uses' => 'Doc\MateriasController@massDestroy', 'as' => 'materias.mass_destroy']);
 
-
+//Trabajando
     Route::resource('auxmaterias', 'Aux\MateriasController');
+    Route::get('actividades', 'Aux\MateriasController@actividades'); // ojo 
     Route::post('materias_mass_destroy', ['uses' => 'Aux\MateriasController@massDestroy', 'as' => 'materias.mass_destroy']);
 
 
-    //Horarios
-    Route::resource('/horario', 'Admin\HoariosController');
-    Route::get('/horarios/{dato}', 'Admin\HoariosController@horarios');
-
-
+//Actividades
     Route::resource('/actividades', 'Aux\ActividadController');
+    Route::get('actividades/{materia_id}/{estudiante_id}', 'Aux\ActividadController@index');
     Route::post('actividades_mass_destroy', ['uses' => 'Aux\ActividadController@massDestroy', 'as' => 'actividad.mass_destroy']);
 
-    // rutas de las listas de calificaciones 
+    
+
+        //Horarios
+    Route::resource('/horario', 'Admin\HoariosController');
+    Route::get('/horarios/{dato}', 'Admin\HoariosController@horarios');
+    // Routr::get('/eliminar/{id}', 'Aux\ActividadesController@destroy');
+
+    // Route::get('/actividad/{user_id}/{portafolio_id}/{tarea_id}/{actividad_id}', 'Aux\ActividadController@guardar');
+
+ // rutas de las listas de calificaciones 
     Route::resource('/lista', 'Admin\ListasController');
     Route::post('listas_mass_destroy', ['uses' => 'Admin\ListasController@massDestroy', 'as' => 'listas.mass_destroy']);
 
     
-
-
 //    admin.posts.index
 //    admin.posts.indexatoriosController@massDestroy', 'as' => 'laboratorios.mass_destroy']);
 
@@ -115,3 +117,4 @@ Route::delete('photos/{photo}','Admin\PhotosController@destroy')->name('admin.ph
 Route::resource('/import', 'Admin\RegistroMasivoController');
 Route::post('/cargar', 'Admin\RegistroMasivoController@guardar');
 // Route::post('/cargar', 'Admin\RegistroMasivoController@guardar');
+
